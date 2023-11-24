@@ -3,7 +3,8 @@
 {% block title %}Events{% endblock %}
 
 {% block content %}
-{% for event in events %}
+<!-- For every event in the events, show only the fir -->
+{% for event in events|slice:":6" %}
 
 <div>
     <h1>{{ event.title }}</h1>
