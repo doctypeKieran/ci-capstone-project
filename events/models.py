@@ -23,7 +23,7 @@ class EventModel(models.Model):
     approved = models.BooleanField(default=False)
 
     class Meta:
-        ordering = ['created_on']
+        ordering = ['event_date']
         unique_together = [['event_date', 'event_time', 'city']]
 
     def __str__(self):
