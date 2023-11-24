@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.urls import reverse
 
 # Create your models here.
 class EventModel(models.Model):
@@ -14,6 +15,7 @@ class EventModel(models.Model):
     )
     # Event image here when cloudinary is set up
     description = models.TextField()
+    ticket_price = models.FloatField(default=0)
     event_date = models.DateField(unique=True)
     event_time = models.TimeField(unique=True)
     city = models.CharField(max_length=50)
@@ -22,3 +24,6 @@ class EventModel(models.Model):
 
     class Meta:
         ordering = ['created_on']
+
+    def __str__(self):
+        return f"Event name: {self.title} held in {self.city} on {self.event_date}"
