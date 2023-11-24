@@ -25,8 +25,3 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('events/', include('events.urls')),
 ]
-
-    # path('', index, name='index'),
-    # path('event/<int:event_id>/', event_detail, name='event_detail'),
-    # path('admin/', admin.site.urls),
-    # path('events/', include('events.urls')),
