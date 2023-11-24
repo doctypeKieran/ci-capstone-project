@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}Events{% endblock %}
+
+{% block content %}
+{% for event in events %}
+
+<div>
+    <h1>{{ event.title }}</h1>
+    <h2>{{ event.teaser }}</h2>
+    <h3>{{ event.city }}, UK</h3>
+    <p>Created by {{ event.creator }}</p>
+    <p><strong>Price: </strong>{{ event.ticket_price }}</p>
+    <p><strong>Date: </strong>{{ event.event_date }}</p>
+    <p><strong>Time: </strong>{{ event.event_time }}</p>
+    <a href="{% url 'event_detail' event.id %}">CLICK ME</a>
+</div>
+
+{% endfor %}
+{% endblock %}
