@@ -1,21 +1,30 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %}Events{% endblock %}
 
 {% block content %}
-<!-- For every event in the events, show only the fir -->
-{% for event in events|slice:":6" %}
+<h1 class="page-title">Upcoming Events</h1>
+<div class="events-grid">
+    <!-- For every event in the events, show only the fir -->
+    {% for event in events|slice:":6" %}
 
-<div>
-    <h1>{{ event.title }}</h1>
-    <h2>{{ event.teaser }}</h2>
-    <h3>{{ event.city }}, UK</h3>
-    <p>Created by {{ event.creator }}</p>
-    <p><strong>Price: </strong>{{ event.ticket_price }}</p>
-    <p><strong>Date: </strong>{{ event.event_date }}</p>
-    <p><strong>Time: </strong>{{ event.event_time }}</p>
-    <a href="{% url 'event_detail' event.id %}">CLICK ME</a>
+    <div class="event-container">
+        <h1 class="event-title">{{ event.title }}</h1>
+        <p class="event-created-by">Created by <span class="user">{{ event.creator }}</span></p>
+        <hr>
+        <!-- Image from Cloudinary goes here -->
+        <img src="{% static 'images/placeholder.webp' %}" alt="">
+        <h3 class="event-location">{{ event.city }}, UK</h3>
+        <h2 class="event-teaser">{{ event.teaser }}</h2>
+        <div class="event-info-container">
+            <p><strong>Price: </strong>{{ event.ticket_price }}</p>
+            <p><strong>Date: </strong>{{ event.event_date }}</p>
+            <p><strong>Time: </strong>{{ event.event_time }}</p>
+        </div>
+        <a href="{% url 'event_detail' event.id %}">View full event details</a>
+    </div>
+
+    {% endfor %}
 </div>
-
-{% endfor %}
 {% endblock %}
