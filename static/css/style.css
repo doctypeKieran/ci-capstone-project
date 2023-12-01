@@ -99,6 +99,13 @@ span.user {
     margin: 0 0 1rem;
     width: 100%;
     border-radius: 20px;
+    /* height: 200px; */
+    object-fit: cover;
+}
+
+.event-container .placeholder-img,
+.event-container .user-img {
+    height: 250px;
 }
 
 .event-location {
