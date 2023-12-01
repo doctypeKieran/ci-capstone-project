@@ -1,14 +1,14 @@
-/* Google Fonts */
+/* --------------------Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap');
 
-/* General Styles */
+/* --------------------General Styles */
 
 #main-content {
     padding: 0 5rem;
 }
 
-/* Navbar styles */
+/* --------------------Navbar styles */
 
 #main-nav {
     margin: 0;
@@ -48,7 +48,7 @@
     align-items: center;
 }
 
-/* Event container styles */
+/* --------------------Event container styles */
 
 .events-grid {
     display: grid;
@@ -99,7 +99,6 @@ span.user {
     margin: 0 0 1rem;
     width: 100%;
     border-radius: 20px;
-    /* height: 200px; */
     object-fit: cover;
 }
 
@@ -118,4 +117,19 @@ span.user {
 
 .event-info-container {
     margin: 1rem 0;
+}
+
+/* --------------------Form Styles */
+
+.form-input-field,
+.form-date-time-field {
+    border: 1px solid rgba(0, 0, 0, 0.7);
+}
+
+.form-input-field {
+    width: 50%;
+}
+
+.form-date-time-field {
+    width: 25%;
 }
