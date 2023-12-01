@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}Event Approvals{% endblock %}
+
+{% block content %}
+<h1>Event Approval List</h1>
+{% if pending_events %}
+<ul>
+    {% for event in pending_events %}
+    <li>
+        {{ event.title }}
+        <a href="{% url 'events:event_approval' event.id %}">Approve</a>
+    </li>
+    {% endfor %}
+</ul>
+{% else %}
+<p>No pending events for approval.</p>
+{% endif %}
+{% endblock %}
