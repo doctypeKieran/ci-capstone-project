@@ -21,7 +21,7 @@ class EventModel(models.Model):
     event_date = models.DateField()
     event_time = models.TimeField()
     city = models.CharField(max_length=50)
-    venue = models.CharField(max_length=100, default="Royal Albert Hall", null=False, blank=False)
+    venue = models.CharField(max_length=100, null=False, blank=False, default='')
     created_on = models.DateTimeField(auto_now_add=True)
     approved = models.BooleanField(default=False)
 
