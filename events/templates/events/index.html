@@ -14,7 +14,12 @@
         <p class="event-created-by">Created by <span class="user">{{ event.creator }}</span></p>
         <hr>
         <!-- Image from Cloudinary goes here -->
-        <img src="{% static 'images/placeholder.webp' %}" alt="">
+        {% if 'placeholder' in event.event_image.url %}
+        <img class="placeholder-img" src="{% static 'images/placeholder.webp' %}" alt="Image of orchestra conductor">
+        {% else %}
+        <img class="user-img" src="{{ event.event_image.url }}" alt="Concert image">
+        {% endif %}
+        <img src="" alt="">
         <h3 class="event-location">{{ event.city }}, UK</h3>
         <h2 class="event-teaser">{{ event.teaser }}</h2>
         <div class="event-info-container">
