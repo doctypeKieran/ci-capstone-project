@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %}Unauthorized{% endblock %}
+
+{% block content %}
+<div class="row">
+    <h2 class="unauthorized-info">
+        You are not authorized to access this page.
+    </h2>
+    <p>Click <a href="{% url 'index' %}">Here </a>to return to the home page.</p>
+</div>
+{% endblock %}
