@@ -36,12 +36,18 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#">All Events</a>
                     </li>
+                    {% if user.is_authenticated %}
                     <li class="nav-item">
-                        <a class="nav-link">Register</a>
+                        <a href="{% url 'account_logout' %}" class="nav-link">Logout</a>
+                    </li>
+                    {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link">Log in</a>
+                        <a class="nav-link" href="{% url 'account_login' %}">Log in</a>
                     </li>
+                    {% endif %}
                 </ul>
                 <form class="d-flex" role="search">
                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
@@ -54,6 +60,11 @@
 
     <!-- Main content -->
     <main id="main-content" class="container-fluid">
+        {% if user.is_authenticated %}
+        <div class="row">
+            <p class="logged-in-user">Logged in as: {{ user }}</p>
+        </div>
+        {% endif %}
         {% block content %}
         <!-- Content goes here -->
         {% endblock %}
