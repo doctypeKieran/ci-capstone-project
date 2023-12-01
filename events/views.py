@@ -44,3 +44,31 @@ def create_event(request):
     }
 
     return render(request, 'events/create_event.html', context)
+
+
+@login_required
+def event_approval_list(request):
+    if not request.user.is_superuser:
+        return render(request, 'unauthorized.html')
+    
+    pending_events = EventModel.objects.filter(approved=False)
+
+    context = {
+        'pending_events': pending_events,
+    }
+
+    return render(request, 'events/event_approval_list.html', context)
+
+
+@login_required
+def event_approval(request, event_id):
+    if not request.user.is_superuser:
+        return render(request, 'unauthorized.html')
+    
+    event = get_object_or_404(EventModel, pk=event_id)
+
+    if not event.approved:
+        event.approved = True
+        event.save()
+    
+    return redirect('events:event_approval_list')
