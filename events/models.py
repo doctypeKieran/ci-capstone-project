@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.urls import reverse
+from cloudinary.models import CloudinaryField
 
 # Create your models here.
 
@@ -15,7 +16,7 @@ class EventModel(models.Model):
     creator = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name='events'
     )
-    # Event image here when cloudinary is set up
+    event_image = CloudinaryField('image', default='placeholder')
     description = models.TextField()
     ticket_price = models.FloatField(default=0)
     event_date = models.DateField()
