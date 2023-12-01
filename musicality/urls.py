@@ -24,5 +24,5 @@ urlpatterns = [
     path('event/<int:event_id>/', event_detail, name='event_detail'),
     path('admin/', admin.site.urls),
     path('accounts/', include('allauth.urls')),
-    path('events/', include('events.urls')),
+    path('events/', include('events.urls', namespace='events')),
 ]
