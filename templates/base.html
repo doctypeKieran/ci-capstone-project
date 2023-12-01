@@ -38,6 +38,9 @@
                     </li>
                     {% if user.is_authenticated %}
                     <li class="nav-item">
+                        <a href="{% url 'events:create_event' %}" class="nav-link">Create Event</a>
+                    </li>
+                    <li class="nav-item">
                         <a href="{% url 'account_logout' %}" class="nav-link">Logout</a>
                     </li>
                     {% else %}
