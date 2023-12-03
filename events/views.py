@@ -76,6 +76,16 @@ def user_pending_events(request):
 
 
 @login_required
+def delete_pending_event(request, event_id):
+    event = get_object_or_404(EventModel, pk=event_id, creator=request.user, approved=False)
+
+    event.delete()
+    messages.success(request, f"Event {event.title} successfully deleted")
+
+    return redirect('events:user_pending_events')
+
+
+@login_required
 def event_approval_list(request):
     if not request.user.is_superuser:
         return render(request, 'unauthorized.html')
