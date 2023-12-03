@@ -41,8 +41,31 @@
                     </li>
                     {% if user.is_authenticated %}
                     {% if user.is_superuser %}
+                    <!-- Admins can see an admin panel for approving/rejecting event submissions and reviews -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Admin Panel
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="nav-item">
+                                <a href="{% url 'events:event_approval_list' %}" class="nav-link">Approve Events</a>
+                            </li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li class="nav-item">
+                                <a href="{% url 'events:event_approval_list' %}" class="nav-link">Approve Reviews</a>
+                            </li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+                    </li>
+                    {% else %}
                     <li class="nav-item">
-                        <a href="{% url 'events:event_approval_list' %}" class="nav-link">Pending Events</a>
+                        <a href="{% url 'events:user_pending_events' %}" class="nav-link">My Pending Events</a>
                     </li>
                     {% endif %}
                     <li class="nav-item">
