@@ -12,5 +12,6 @@ urlpatterns = [
     path('approval/approve/<int:event_id>/', views.event_approval, name='event_approval'),
     path('user-pending-events/', views.user_pending_events, name='user_pending_events'),
     path('delete-event/<int:event_id>/', views.delete_event, name='delete_event'),
-    path('delete-pending-event/<int:event_id>/', views.delete_pending_event, name='delete_pending_event'), 
+    path('delete-pending-event/<int:event_id>/', views.delete_pending_event, name='delete_pending_event'),
+    path('edit-event/<int:event_id>/', views.edit_event, name='edit_event'),
 ]
