@@ -51,6 +51,20 @@ def create_event(request):
 
 
 @login_required
+def delete_event(request, event_id):
+    event = get_object_or_404(EventModel, pk=event_id)
+
+    if request.user == event.creator or request.user.is_superuser:
+        event.delete()
+        messages.success(request, "Event successfully deleted.")
+
+    else:
+        messages.error(request, "You don't have permission to delete that event.")
+
+    return redirect('index')
+
+
+@login_required
 def user_pending_events(request):
     pending_events = EventModel.objects.filter(creator=request.user, approved=False)
 
