@@ -9,7 +9,12 @@
     {% for event in pending_events %}
     <li>
         {{ event.title }}
-        <a href="{% url 'events:event_approval' event.id %}">Approve</a>
+        
+        <form method="POST" action="{% url 'events:event_approval' event.id %}">
+            {% csrf_token %}
+            <button type="submit" name="action" value="approve">Approve</button>
+            <button type="submit" name="action" value="reject">Reject</button>
+        </form>
     </li>
     {% endfor %}
 </ul>
