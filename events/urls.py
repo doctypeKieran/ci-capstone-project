@@ -10,6 +10,7 @@ urlpatterns = [
     path('create-event/', views.create_event, name='create_event'),
     path('approval/list/', views.event_approval_list, name='event_approval_list'),
     path('approval/approve/<int:event_id>/', views.event_approval, name='event_approval'),
-    path('user-pending-events', views.user_pending_events, name='user_pending_events'),
-    path('delete-event/<int:event_id>', views.delete_event, name='delete_event'),
+    path('user-pending-events/', views.user_pending_events, name='user_pending_events'),
+    path('delete-event/<int:event_id>/', views.delete_event, name='delete_event'),
+    path('delete-pending-event/<int:event_id>/', views.delete_pending_event, name='delete_pending_event'), 
 ]
