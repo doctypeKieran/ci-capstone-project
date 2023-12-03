@@ -21,6 +21,7 @@
         {% endif %}
         <img src="" alt="">
         <h3 class="event-location">{{ event.city }}, UK</h3>
+        <p>Taking place at {{ event.venue }}</p>
         <h2 class="event-teaser">{{ event.teaser }}</h2>
         <div class="event-info-container">
             <p><strong>Price: </strong>{{ event.ticket_price }}</p>
@@ -33,6 +34,11 @@
             data-bs-target="#deleteEventModal">
             Delete
         </button>
+        {% if user == event.creator %}
+        <a href="{% url 'events:edit_event' event.id %}" class="btn btn-primary">
+            Edit
+        </a>
+        {% endif %}
         {% endif %}
         {% endif %}
         <a href="{% url 'event_detail' event.id %}">View full event details</a>
