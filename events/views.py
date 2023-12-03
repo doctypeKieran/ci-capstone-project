@@ -68,11 +68,28 @@ def event_approval_list(request):
 def event_approval(request, event_id):
     if not request.user.is_superuser:
         return render(request, 'unauthorized.html')
-    
+
     event = get_object_or_404(EventModel, pk=event_id)
 
-    if not event.approved:
-        event.approved = True
-        event.save()
+    if request.method == 'POST':
+        action = request.POST.get('action', '')  # Get the action from the form
+
+        if action == 'approve':
+            event.approved = True
+            event.save()
+            messages.success(request, 'Event has been approved.')
+
+        elif action == 'reject':
+            # Delete the event and display a success message
+            event.delete()
+            messages.success(request, 'Event has been rejected and deleted.')
+
+        return redirect('events:event_approval_list')
+
+    # If the request method is not POST, render the approval form
+    context = {
+        'event': event,
+    }
+
+    return render(request, 'events/event_approval.html', context)
     
-    return redirect('events:event_approval_list')
