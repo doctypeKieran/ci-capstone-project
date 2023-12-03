@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}My Pending Events{% endblock %}
+
+{% block content %}
+{% if user.is_authenticated %}
+{% if user.is_superuser %}
+<p>You are a superuser. Superusers do not have pending events.</p>
+{% else %}
+{% if pending_events %}
+<ul>
+    {% for event in pending_events %}
+    <li>{{ event.title }}</li>
+    {% endfor %}
+</ul>
+{% else %}
+<p>No pending events for approval.</p>
+{% endif %}
+{% endif %}
+{% else %}
+<p>You need to be logged in to view your pending events.</p>
+{% endif %}
+{% endblock %}
