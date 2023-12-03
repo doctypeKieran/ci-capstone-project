@@ -4,7 +4,7 @@ from django.http import HttpResponse
 from django.contrib import messages
 
 from .models import EventModel
-from .forms import EventCreationForm
+from .forms import EventCreationForm, EventEditForm
 
 # Create your views here.
 
@@ -48,6 +48,25 @@ def create_event(request):
     }
 
     return render(request, 'events/create_event.html', context)
+
+
+def edit_event(request, event_id):
+    event = get_object_or_404(EventModel, pk=event_id, creator=request.user)
+
+    if request.method == 'POST':
+        form = EventEditForm(request.POST, instance=event)
+        if form.is_valid():
+            form.save()
+            return redirect('index')
+    else:
+        form = EventEditForm(instance=event)
+
+    context = {
+        'form': form,
+        'event': event,
+    }
+
+    return render(request, 'events/edit_event.html', context)
 
 
 @login_required
