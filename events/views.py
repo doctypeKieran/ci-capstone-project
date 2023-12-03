@@ -51,6 +51,17 @@ def create_event(request):
 
 
 @login_required
+def user_pending_events(request):
+    pending_events = EventModel.objects.filter(creator=request.user, approved=False)
+
+    context = {
+        'pending_events': pending_events,
+    }
+
+    return render(request, 'events/user_pending_events.html', context)
+
+
+@login_required
 def event_approval_list(request):
     if not request.user.is_superuser:
         return render(request, 'unauthorized.html')
@@ -92,4 +103,3 @@ def event_approval(request, event_id):
     }
 
     return render(request, 'events/event_approval.html', context)
-    
