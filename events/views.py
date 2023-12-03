@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
+from django.contrib import messages
 
 from .models import EventModel
 from .forms import EventCreationForm
@@ -35,6 +36,9 @@ def create_event(request):
             event = form.save(commit=False)
             event.creator = request.user
             event.save()
+
+            messages.success(request, "Your event has been submitted and is pending approval.")
+
             return redirect('index')
     else:
         form = EventCreationForm()
