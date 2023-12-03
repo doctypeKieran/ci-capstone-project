@@ -56,7 +56,7 @@ def delete_event(request, event_id):
 
     if request.user == event.creator or request.user.is_superuser:
         event.delete()
-        messages.success(request, "Event successfully deleted.")
+        messages.success(request, f"Event {event.title} successfully deleted.")
 
     else:
         messages.error(request, "You don't have permission to delete that event.")
@@ -102,7 +102,7 @@ def event_approval(request, event_id):
         if action == 'approve':
             event.approved = True
             event.save()
-            messages.success(request, 'Event has been approved.')
+            messages.success(request, f'Event {event.title} has been approved.')
 
         elif action == 'reject':
             # Delete the event and display a success message
