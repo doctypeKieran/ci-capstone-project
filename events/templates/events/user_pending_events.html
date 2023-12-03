@@ -11,7 +11,15 @@
 {% if pending_events %}
 <ul>
     {% for event in pending_events %}
-    <li>{{ event.title }}</li>
+    <li>
+        {{ event.title }}
+        {% if user == event.creator %}
+        <form method="post" action="{% url 'events:delete_pending_event' event.id %}">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger">Delete</button>
+        </form>
+        {% endif %}
+    </li>
     {% endfor %}
 </ul>
 {% else %}
