@@ -4,6 +4,17 @@
 {% block title %}Events{% endblock %}
 
 {% block content %}
+{% if messages %}
+<div class="row">
+    {% for message in messages %}
+    <div class="col col-lg-3">
+        <div class="alert alert-secondary {{ message.tags }}">
+            {{ message|safe }}
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endif %}
 <h1 class="page-title">Upcoming Events</h1>
 <div class="events-grid">
     <!-- For every event in the events, show only the fir -->
