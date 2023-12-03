@@ -32,3 +32,19 @@ class EventCreationForm(forms.ModelForm):
         self.fields['event_time'].widget.attrs.update({'class': 'form-date-time-field'})
         self.fields['city'].widget.attrs.update({'class': 'form-input-field'})
         self.fields['venue'].widget.attrs.update({'class': 'form-input-field'})
+
+
+class EventEditForm(forms.ModelForm):
+    class Meta:
+        model = EventModel
+        fields = [
+            'title',
+            'teaser',
+            'event_image',
+            'description',
+            'ticket_price',
+            'event_date',
+            'event_time',
+            'city',
+            'venue',
+        ]
