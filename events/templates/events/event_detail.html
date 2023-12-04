@@ -7,15 +7,18 @@
 {% block content %}
     <h1 class="event-title__details">{{ event.title }}</h1>
     <p class="event-created-by">Created by <span class="user">{{ event.creator }}</span></p>
-    {% if 'placeholder' in event.event_image.url %}
-    <img class="placeholder-img" src="{% static 'images/placeholder.webp' %}" alt="Image of orchestra conductor">
+    {% if event.event_image_url %}
+    <img class="user-img" src="{{ event.event_image_url }}" alt="User uploaded image">
     {% else %}
-    <img class="user-img" src="{{ event.event_image.url }}" alt="Concert image">
+    <img class="placeholder-img" src="{% static 'images/placeholder.webp' %}" alt="Image of orchestra conductor">
     {% endif %}
+    <hr>
     <h3 class="event-location">{{ event.city }}, UK</h3>
     <p>Taking place at {{ event.venue }}</p>
+    <hr>
     <h2 class="event-teaser">{{ event.teaser }}</h2>
     <p class="event-description">{{ event.description }}</p>
+    <hr>
     <div class="event-info-container">
         <p><strong>Price: </strong>£{{ event.ticket_price|floatformat:2 }}</p>
         <p><strong>Date: </strong>{{ event.event_date }}</p>
