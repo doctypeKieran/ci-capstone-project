@@ -3,9 +3,10 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 from django.contrib import messages
 from django.core.paginator import Paginator
+from django.urls import reverse
 
-from .models import EventModel
-from .forms import EventCreationForm, EventEditForm
+from .models import EventModel, BookEventModel
+from .forms import EventCreationForm, EventEditForm, BookingForm
 
 # Create your views here.
 
@@ -101,6 +102,30 @@ def delete_event(request, event_id):
         messages.error(request, "You don't have permission to delete that event.")
 
     return redirect('index')
+
+
+@login_required
+def book_event(request, event_id):
+    event = get_object_or_404(EventModel, pk=event_id)
+
+    if request.method == 'POST':
+        form = BookingForm(request.POST)
+        if form.is_valid():
+            booking = form.save(commit=False)
+            booking.user = request.user
+            booking.event = event
+            booking.save()
+            messages.success(request, 'Event booked successfully')
+            return redirect(reverse('event_detail', args=[event.id]))
+    else:
+        form = BookingForm()
+    
+    context = {
+        'form': form,
+        'event': event,
+    }
+
+    return render(request, 'events/book_event.html', context)
 
 
 @login_required
