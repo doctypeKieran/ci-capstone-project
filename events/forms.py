@@ -7,7 +7,7 @@ class EventCreationForm(forms.ModelForm):
         fields = [
             'title',
             'teaser',
-            'event_image',
+            'event_image_url',
             'description',
             'ticket_price',
             'event_date',
@@ -25,7 +25,7 @@ class EventCreationForm(forms.ModelForm):
         super().__init__(*args, **kwargs)
         self.fields['title'].widget.attrs.update({'class': 'form-input-field'})
         self.fields['teaser'].widget.attrs.update({'class': 'form-input-field'})
-        self.fields['event_image'].widget.attrs.update({'class': 'form-input-field'})
+        self.fields['event_image_url'].widget.attrs.update({'class': 'form-input-field'})
         self.fields['description'].widget.attrs.update({'class': 'form-input-field'})
         self.fields['ticket_price'].widget.attrs.update({'class': 'form-input-field'})
         self.fields['event_date'].widget.attrs.update({'class': 'form-date-time-field'})
@@ -40,7 +40,7 @@ class EventEditForm(forms.ModelForm):
         fields = [
             'title',
             'teaser',
-            'event_image',
+            'event_image_url',
             'description',
             'ticket_price',
             'event_date',
@@ -48,3 +48,20 @@ class EventEditForm(forms.ModelForm):
             'city',
             'venue',
         ]
+
+        widgets = {
+            'event_date': forms.DateInput(attrs={'type': 'date'}),
+            'event_time': forms.TimeInput(attrs={'type': 'time'}),
+        }
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['title'].widget.attrs.update({'class': 'form-input-field'})
+        self.fields['teaser'].widget.attrs.update({'class': 'form-input-field'})
+        self.fields['event_image_url'].widget.attrs.update({'class': 'form-input-field'})
+        self.fields['description'].widget.attrs.update({'class': 'form-input-field'})
+        self.fields['ticket_price'].widget.attrs.update({'class': 'form-input-field'})
+        self.fields['event_date'].widget.attrs.update({'class': 'form-date-time-field'})
+        self.fields['event_time'].widget.attrs.update({'class': 'form-date-time-field'})
+        self.fields['city'].widget.attrs.update({'class': 'form-input-field'})
+        self.fields['venue'].widget.attrs.update({'class': 'form-input-field'})
