@@ -116,6 +116,24 @@ span.user {
     margin: 1rem 0;
 }
 
+/* --------------------Pagination Styles */
+.pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pagination-btn {
+    padding: .75rem;
+    border: none;
+    border-radius: 12px;
+    background-color: gray;
+    text-decoration: none;
+    color: #fafafa;
+    background-color: rgb(1, 1, 80);
+    text-transform: uppercase;
+}
+
 /* --------------------Form Styles */
 
 .form-input-field,
@@ -130,3 +148,4 @@ span.user {
 .form-date-time-field {
     width: 25%;
 }
+
