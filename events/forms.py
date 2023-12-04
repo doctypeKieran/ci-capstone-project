@@ -1,5 +1,5 @@
 from django import forms
-from .models import EventModel
+from .models import EventModel, BookEventModel
 
 class EventCreationForm(forms.ModelForm):
     class Meta:
@@ -65,3 +65,15 @@ class EventEditForm(forms.ModelForm):
         self.fields['event_time'].widget.attrs.update({'class': 'form-date-time-field'})
         self.fields['city'].widget.attrs.update({'class': 'form-input-field'})
         self.fields['venue'].widget.attrs.update({'class': 'form-input-field'})
+
+
+class BookingForm(forms.ModelForm):
+    class Meta:
+        model = BookEventModel
+        fields = ['num_of_tickets']
+
+    
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['num_of_tickets'].widget = forms.Select(choices=[(i, i) for i in range(1, 11)])
+        self.fields['num_of_tickets'].widget.attrs.update({'class': 'form-input-field'})
