@@ -118,6 +118,12 @@ span.user {
     margin: 1rem 0;
 }
 
+/* --------------------Event Details Styles */
+
+.book-now-btn {
+    display: block;
+}
+
 /* --------------------Pagination Styles */
 .pagination {
     display: flex;
