@@ -39,3 +39,10 @@ class EventModel(models.Model):
     
     def get_image(self):
         return self.event_image_url
+
+
+class BookEventModel(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    event = models.ForeignKey(EventModel, on_delete=models.CASCADE)
+    num_of_tickets = models.PositiveIntegerField(default=1, choices=[(i, i) for i in range(1, 11)])
+    date_booked = models.DateTimeField(auto_now_add=True)
