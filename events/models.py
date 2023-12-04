@@ -16,7 +16,7 @@ class EventModel(models.Model):
     creator = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name='events'
     )
-    event_image = CloudinaryField('image', default='placeholder')
+    event_image_url = models.URLField(blank=True, null=True)
     description = models.TextField()
     ticket_price = models.FloatField(default=0)
     event_date = models.DateField()
@@ -35,3 +35,7 @@ class EventModel(models.Model):
 
     def __str__(self):
         return f"Event name: {self.title} held in {self.city} on {self.event_date}"
+
+    
+    def get_image(self):
+        return self.event_image_url
