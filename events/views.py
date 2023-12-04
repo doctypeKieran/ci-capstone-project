@@ -115,7 +115,8 @@ def book_event(request, event_id):
             booking.user = request.user
             booking.event = event
             booking.save()
-            messages.success(request, 'Event booked successfully')
+            ticket_plural = 'ticket' if booking.num_of_tickets == 1 else 'tickets'
+            messages.success(request, f'Successfully booked {event.title} with {booking.num_of_tickets} {ticket_plural}')
             return redirect(reverse('event_detail', args=[event.id]))
     else:
         form = BookingForm()
@@ -126,6 +127,27 @@ def book_event(request, event_id):
     }
 
     return render(request, 'events/book_event.html', context)
+
+
+@login_required
+def user_booked_events(request):
+    booked_events = BookEventModel.objects.filter(user=request.user)
+
+    context = {
+        'booked_events': booked_events
+    }
+
+    return render(request, 'events/booked_events.html', context)
+
+
+def delete_booked_event(request, booking_id):
+    booked_event = get_object_or_404(BookEventModel, pk=booking_id, user=request.user)
+
+    if request.method == 'POST':
+        booked_event.delete()
+        messages.success(request, f'Booking for {booked_event.event.title} deleted successfully.')
+
+    return redirect('events:user_booked_events')
 
 
 @login_required
