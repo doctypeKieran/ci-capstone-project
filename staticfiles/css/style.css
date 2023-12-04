@@ -69,9 +69,6 @@
     border: 1px solid rgba(0, 0, 0, 0.4);
     border-radius: 20px;
     box-shadow: -4px 6px 4px 4px rgba(0, 0, 0, 0.4);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
 }
 
 .event-title {
@@ -119,6 +116,24 @@ span.user {
     margin: 1rem 0;
 }
 
+/* --------------------Pagination Styles */
+.pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pagination-btn {
+    padding: .75rem;
+    border: none;
+    border-radius: 12px;
+    background-color: gray;
+    text-decoration: none;
+    color: #fafafa;
+    background-color: rgb(1, 1, 80);
+    text-transform: uppercase;
+}
+
 /* --------------------Form Styles */
 
 .form-input-field,
@@ -133,3 +148,4 @@ span.user {
 .form-date-time-field {
     width: 25%;
 }
+
