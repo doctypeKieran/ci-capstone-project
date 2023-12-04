@@ -1,23 +1,40 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %}Event Approvals{% endblock %}
 
 {% block content %}
 <h1>Event Approval List</h1>
 {% if pending_events %}
-<ul>
+<div class="events-grid">
     {% for event in pending_events %}
-    <li>
-        {{ event.title }}
-        
+    <div class="event-container">
+        <h1 class="event-title">{{ event.title }}</h1>
+        <p class="event-created-by">Created by <span class="user">{{ event.creator }}</span></p>
+        <hr>
+        <!-- Image from Cloudinary goes here -->
+        {% if 'placeholder' in event.event_image.url %}
+        <img class="placeholder-img" src="{% static 'images/placeholder.webp' %}" alt="Image of orchestra conductor">
+        {% else %}
+        <img class="user-img" src="{{ event.event_image.url }}" alt="Concert image">
+        {% endif %}
+        <img src="" alt="">
+        <h3 class="event-location">{{ event.city }}, UK</h3>
+        <p>Taking place at {{ event.venue }}</p>
+        <h2 class="event-teaser">{{ event.teaser }}</h2>
+        <div class="event-info-container">
+            <p><strong>Price: </strong>{{ event.ticket_price }}</p>
+            <p><strong>Date: </strong>{{ event.event_date }}</p>
+            <p><strong>Time: </strong>{{ event.event_time }}</p>
+        </div>
         <form method="POST" action="{% url 'events:event_approval' event.id %}">
             {% csrf_token %}
             <button type="submit" name="action" value="approve">Approve</button>
             <button type="submit" name="action" value="reject">Reject</button>
         </form>
-    </li>
+    </div>
     {% endfor %}
-</ul>
+</div>
 {% else %}
 <p>No pending events for approval.</p>
 {% endif %}
