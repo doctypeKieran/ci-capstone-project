@@ -17,7 +17,7 @@
     <h2 class="event-teaser">{{ event.teaser }}</h2>
     <p class="event-description">{{ event.description }}</p>
     <div class="event-info-container">
-        <p><strong>Price: </strong>{{ event.ticket_price }}</p>
+        <p><strong>Price: </strong>£{{ event.ticket_price|floatformat:2 }}</p>
         <p><strong>Date: </strong>{{ event.event_date }}</p>
         <p><strong>Time: </strong>{{ event.event_time }}</p>
     </div>
