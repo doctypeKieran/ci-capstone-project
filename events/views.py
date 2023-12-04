@@ -72,7 +72,11 @@ def edit_event(request, event_id):
     if request.method == 'POST':
         form = EventEditForm(request.POST, instance=event)
         if form.is_valid():
+            event.approved = False
             form.save()
+            
+            messages.success(request, "Your event has been edited and is pending approval.")
+
             return redirect('index')
     else:
         form = EventEditForm(instance=event)
