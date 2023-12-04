@@ -6,6 +6,7 @@
 
 #main-content {
     padding: 0 5rem;
+    min-height: 100vh;
 }
 
 /* --------------------Navbar styles */
@@ -66,6 +67,7 @@
 .event-container {
     padding: 1rem;
     margin-top: .5rem;
+    margin-bottom: 3rem;
     border: 1px solid rgba(0, 0, 0, 0.4);
     border-radius: 20px;
     box-shadow: -4px 6px 4px 4px rgba(0, 0, 0, 0.4);
@@ -116,6 +118,13 @@ span.user {
     margin: 1rem 0;
 }
 
+/* --------------------Event Details Styles */
+
+.book-now-btn {
+    display: block;
+    width: 100px;
+}
+
 /* --------------------Pagination Styles */
 .pagination {
     display: flex;
@@ -156,4 +165,33 @@ span.user {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    background-color: rgb(1, 1, 80);
+    color: #fafafa;
+}
+
+.base-footer p {
+    margin: 0;
+}
+
+.base-footer .socials-container {
+    padding: 1rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.base-footer a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.social-icon {
+    font-size: 2rem;
+    transition: all .2s linear;
+}
+
+.social-icon:hover {
+    transform: scale(1.2);
+    text-shadow: 0px 0px 4px rgba(255, 255, 255, 0.5);
 }
