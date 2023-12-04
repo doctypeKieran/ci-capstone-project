@@ -37,7 +37,7 @@
                         <a class="nav-link active" aria-current="page" href="#">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">All Events</a>
+                        <a class="nav-link" href="{% url 'events:all_events' %}">All Events</a>
                     </li>
                     {% if user.is_authenticated %}
                     {% if user.is_superuser %}
@@ -112,7 +112,7 @@
         {% endif %}
         {% if user.is_authenticated %}
         <div class="row">
-            <p class="logged-in-user">Logged in as: {{ user }}</p>
+            <p class="logged-in-user">Logged in as: <strong>{{ user }}</strong></p>
         </div>
         {% endif %}
         {% block content %}
