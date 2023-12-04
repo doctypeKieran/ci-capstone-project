@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 from django.contrib import messages
+from django.core.paginator import Paginator
 
 from .models import EventModel
 from .forms import EventCreationForm, EventEditForm
@@ -16,6 +17,21 @@ def index(request):
         'events': events,
     }
     return render(request, 'events/index.html', context)
+
+
+def all_events(request):
+    events = EventModel.objects.filter(approved=True)
+
+    paginator = Paginator(events, 6)
+
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+
+    context = {
+        'page_obj': page_obj,
+    }
+
+    return render(request, 'events/all_events.html', context)
 
 
 def event_detail(request, event_id):
