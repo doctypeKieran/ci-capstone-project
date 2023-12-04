@@ -149,3 +149,11 @@ span.user {
     width: 25%;
 }
 
+/* --------------------Footer Styles */
+
+.base-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
