@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}My Booked Events{% endblock %}
+
+{% block content %}
+
+{% if booked_events %}
+
+{% for booked_event in booked_events %}
+<h1>{{booked_event.event.title}}</h1>
+<p>Number of tickets: {{ booked_event.num_of_tickets }}</p>
+<form method="POST" action="{% url 'events:delete_booking' booked_event.id %}">
+    {% csrf_token %}
+    <button type="submit">Delete Booking</button>
+</form>
+{% endfor %}
+{% else %}
+<h1>You currently have no booked events.</h1>
+<p>
+    Looking to book an event? Click <a href="/">Here</a> to view the latest events!
+</p>
+{% endif %}
+
+{% endblock %}
