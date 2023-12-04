@@ -67,6 +67,9 @@
                     </li>
                     {% endif %}
                     <li class="nav-item">
+                        <a href="{% url 'events:user_booked_events' %}" class="nav-link">My Booked Events</a>
+                    </li>
+                    <li class="nav-item">
                         <a href="{% url 'events:create_event' %}" class="nav-link">Create Event</a>
                     </li>
                     <li class="nav-item">
@@ -120,17 +123,17 @@
 
     <footer class="base-footer">
         <div class="socials-container">
-            <a href="https://www.instagram.com/"><i class="fa-brands fa-instagram social-icon"></i></a>
-            <a href="https://www.facebook.com/"><i class="fa-brands fa-facebook social-icon"></i></a>
-            <a href="https://www.twitter.com/"><i class="fa-brands fa-x-twitter social-icon"></i></a>
-            <a href="https://www.youtube.com/"><i class="fa-brands fa-youtube social-icon"></i></a>
+            <a href="https://www.instagram.com/" target="_blank"><i class="fa-brands fa-instagram social-icon"></i></a>
+            <a href="https://www.facebook.com/" target="_blank"><i class="fa-brands fa-facebook social-icon"></i></a>
+            <a href="https://www.twitter.com/" target="_blank"><i class="fa-brands fa-x-twitter social-icon"></i></a>
+            <a href="https://www.youtube.com/" target="_blank"><i class="fa-brands fa-youtube social-icon"></i></a>
         </div>
         <p>Copyright &copy; Kieran Hillman 2023</p>
         <div class="socials-container">
-            <a href="https://github.com/doctypeKieran">
+            <a href="https://github.com/doctypeKieran" target="_blank">
                 <i class="fa-brands fa-github social-icon"></i>
             </a>
-            <a href="https://www.linkedin.com/in/kieran-hillman-7435a9220/">
+            <a href="https://www.linkedin.com/in/kieran-hillman-7435a9220/" target="_blank">
                 <i class="fa-brands fa-linkedin social-icon"></i>
             </a>
         </div>
