@@ -122,6 +122,7 @@ span.user {
 
 .book-now-btn {
     display: block;
+    width: 100px;
 }
 
 /* --------------------Pagination Styles */
