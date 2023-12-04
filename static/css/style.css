@@ -6,6 +6,7 @@
 
 #main-content {
     padding: 0 5rem;
+    min-height: 100vh;
 }
 
 /* --------------------Navbar styles */
