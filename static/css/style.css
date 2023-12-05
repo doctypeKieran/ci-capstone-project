@@ -154,9 +154,25 @@ span.user {
 
 /* --------------------Event Details Styles */
 
+.event-detail-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.event-detail-img {
+    width: 100%;
+    max-width: 800px;
+    object-fit: cover;
+    margin: 0 auto;
+    border-radius: 12px;
+}
+
 .book-now-btn {
     display: block;
     width: 100px;
+    margin: 0 auto;
 }
 
 /* --------------------Pagination Styles */
