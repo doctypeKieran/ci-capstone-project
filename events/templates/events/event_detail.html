@@ -39,4 +39,33 @@
 </form>
 {% endif %}
 {% endif %}
+
+{% for review in reviews %}
+<h1>{{ review.review_title }}</h1>
+<p>{{ review.review_text }}</p>
+<p><em>Written by {{ review.user }}</em></p>
+<!-- Display a number of stars based on review score -->
+{% if review.review_score == 1 %}
+<i class="fa-solid fa-star"></i>
+{% elif review.review_score == 2 %}
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+{% elif review.review_score == 3 %}
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+{% elif review.review_score == 4 %}
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+{% elif review.review_score == 5 %}
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+
+{% endif %}
+{% endfor %}
 {% endblock %}
