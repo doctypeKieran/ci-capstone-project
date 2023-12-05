@@ -19,4 +19,6 @@ urlpatterns = [
     path('booked-events/', views.user_booked_events, name='user_booked_events'),
     path('delete-booking/<int:booking_id>/', views.delete_booked_event, name='delete_booking'),
     path('user-pending-reviews', views.user_pending_reviews, name='user_pending_reviews'),
+    path('approval/reviews/', views.review_approval_list, name='review_approval_list'),
+    path('approval/review-approve/<int:review_id>/', views.review_approval, name='review_approval'),
 ]
