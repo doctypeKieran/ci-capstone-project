@@ -117,7 +117,6 @@ span.user {
 }
 
 .event-container img {
-    margin: 0 0 1rem;
     width: 100%;
     border-radius: 20px;
     object-fit: cover;
@@ -263,5 +262,9 @@ span.user {
 
     .event-buttons-container .event-btn {
         width: 100%;
+    }
+
+    .event-title {
+        font-size: 2rem;
     }
 }
