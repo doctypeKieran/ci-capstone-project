@@ -58,6 +58,18 @@ body {
 
 .nav-item a.nav-link {
     font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.navbar-nav .nav-item a.nav-link:hover {
+    text-decoration: underline;
+}
+
+.navbar-nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .hamburger-icon {
@@ -261,6 +273,10 @@ span.user {
 @media screen and (max-width: 996px) {
     #main-content {
         padding: 0 2rem;
+    }
+
+    .nav-item a.nav-link {
+        font-size: 1.25rem;
     }
 
     .events-grid {
