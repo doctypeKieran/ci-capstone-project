@@ -6,7 +6,7 @@
 {% block content %}
 <h1 class="page-title">Upcoming Events</h1>
 <div class="events-grid">
-    <!-- For every event in the events, show only the fir -->
+    <!-- For every event in the events, show only the first 6 -->
     {% for event in events|slice:":6" %}
 
     <div class="event-container">
@@ -40,11 +40,10 @@
             <a href="{% url 'events:edit_event' event.id %}" class="event-btn btn btn-primary">
                 Edit
             </a>
-
-            {% endif %}
-            {% endif %}
             {% endif %}
         </div>
+        {% endif %}
+        {% endif %}
     </div>
 
     {% endfor %}
