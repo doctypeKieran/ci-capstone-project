@@ -7,25 +7,27 @@
 {% block title %} {{ event.title }}{% endblock%}
 
 {% block content %}
-<h1 class="event-title__details">{{ event.title }}</h1>
-<p class="event-created-by">Created by <span class="user">{{ event.creator }}</span></p>
-{% if event.event_image_url %}
-<img class="user-img" src="{{ event.event_image_url }}" alt="User uploaded image">
-{% else %}
-<img class="placeholder-img" src="{% static 'images/placeholder.webp' %}" alt="Image of orchestra conductor">
-{% endif %}
-<a href="{% url 'events:book_event' event.id %}" class="book-now-btn btn btn-success mt-3">Book Now</a>
-<hr>
-<h3 class="event-location">{{ event.city }}, UK</h3>
-<p>Taking place at {{ event.venue }}</p>
-<hr>
-<h2 class="event-teaser">{{ event.teaser }}</h2>
-<p class="event-description">{{ event.description }}</p>
-<hr>
-<div class="event-info-container">
-    <p><strong>Price: </strong>£{{ event.ticket_price|floatformat:2 }}</p>
-    <p><strong>Date: </strong>{{ event.event_date }}</p>
-    <p><strong>Time: </strong>{{ event.event_time }}</p>
+<div class="event-detail-container">
+    <h1 class="event-title mx-auto">{{ event.title }}</h1>
+    <p class="event-created-by mx-auto">Created by <span class="user">{{ event.creator }}</span></p>
+    {% if event.event_image_url %}
+    <img class="event-detail-img user-img" src="{{ event.event_image_url }}" alt="User uploaded image">
+    {% else %}
+    <img class="event-detail-img placeholder-img" src="{% static 'images/placeholder.webp' %}" alt="Image of orchestra conductor">
+    {% endif %}
+    <a href="{% url 'events:book_event' event.id %}" class="book-now-btn btn btn-success mt-3">Book Now</a>
+    <hr>
+    <h3 class="event-location">{{ event.city }}, UK</h3>
+    <p>Taking place at {{ event.venue }}</p>
+    <hr>
+    <h2 class="event-teaser">{{ event.teaser }}</h2>
+    <p class="event-description">{{ event.description }}</p>
+    <hr>
+    <div class="event-info-container">
+        <p><strong>Price: </strong>£{{ event.ticket_price|floatformat:2 }}</p>
+        <p><strong>Date: </strong>{{ event.event_date }}</p>
+        <p><strong>Time: </strong>{{ event.event_time }}</p>
+    </div>
 </div>
 
 {% if user.is_authenticated %}
