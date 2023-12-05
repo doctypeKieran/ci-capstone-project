@@ -1,5 +1,5 @@
 from django import forms
-from .models import EventModel, BookEventModel
+from .models import EventModel, BookEventModel, Review
 
 class EventCreationForm(forms.ModelForm):
     class Meta:
@@ -77,3 +77,16 @@ class BookingForm(forms.ModelForm):
         super().__init__(*args, **kwargs)
         self.fields['num_of_tickets'].widget = forms.Select(choices=[(i, i) for i in range(1, 11)])
         self.fields['num_of_tickets'].widget.attrs.update({'class': 'form-input-field'})
+
+
+class ReviewForm(forms.ModelForm):
+    class Meta:
+        model = Review
+        fields = ['review_title', 'review_text', 'review_score']
+
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['review_title'].widget.attrs.update({'class': 'form-input-field'})
+        self.fields['review_text'].widget.attrs.update({'class': 'form-input-field'})
+        self.fields['review_score'].widget.attrs.update({'class': 'form-input-field'})
