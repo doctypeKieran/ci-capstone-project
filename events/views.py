@@ -6,7 +6,7 @@ from django.core.paginator import Paginator
 from django.urls import reverse
 
 from .models import EventModel, BookEventModel, Review
-from .forms import EventCreationForm, EventEditForm, BookingForm, ReviewForm
+from .forms import EventCreationForm, EventEditForm, BookingForm, ReviewForm, EditReviewForm
 
 # Create your views here.
 
@@ -278,3 +278,27 @@ def user_pending_reviews(request):
     }
 
     return render(request, 'events/user_pending_reviews.html', context)
+
+
+@login_required
+def edit_review(request, review_id):
+    review = get_object_or_404(Review, pk=review_id, user=request.user)
+
+    if request.method == 'POST':
+        form = EditReviewForm(request.POST, instance=review)
+        if form.is_valid():
+            review.approved = False
+            form.save()
+            
+            messages.success(request, "Your review has been edited and is pending approval.")
+
+            return redirect('index')
+    else:
+        form = EditReviewForm(instance=review)
+
+    context = {
+        'form': form,
+        'review': review,
+    }
+
+    return render(request, 'events/edit_event.html', context)
