@@ -231,6 +231,7 @@ def event_approval(request, event_id):
     return render(request, 'events/event_approval.html', context)
 
 
+@login_required
 def user_pending_reviews(request):
     pending_reviews = Review.objects.filter(user=request.user, approved=False)
 
