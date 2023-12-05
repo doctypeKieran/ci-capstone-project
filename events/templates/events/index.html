@@ -13,15 +13,17 @@
         <h1 class="event-title">{{ event.title }}</h1>
         <p class="event-created-by">Created by <span class="user">{{ event.creator }}</span></p>
         <hr>
-        <!-- Image from Cloudinary goes here -->
         {% if event.event_image_url %}
         <img class="user-img" src="{{ event.event_image_url }}" alt="User uploaded image">
         {% else %}
         <img class="placeholder-img" src="{% static 'images/placeholder.webp' %}" alt="Image of orchestra conductor">
         {% endif %}
         <h3 class="event-location">{{ event.city }}, UK</h3>
-        <p>Taking place at {{ event.venue }}</p>
+        <p class="event-venue">Taking place at {{ event.venue }}</p>
         <h2 class="event-teaser">{{ event.teaser }}</h2>
+        <div class="event-buttons-container">
+            <a class="event-btn event-details-btn btn btn-success" href="{% url 'event_detail' event.id %}">View full event details</a>
+        </div>
         <div class="event-info-container">
             <p><strong>Price: </strong>£{{ event.ticket_price|floatformat:2 }}</p>
             <p><strong>Date: </strong>{{ event.event_date }}</p>
@@ -29,18 +31,20 @@
         </div>
         {% if user.is_authenticated %}
         {% if user == event.creator or user.is_superuser %}
-        <button class="btn btn-danger delete-event-btn" data-event-id="{{ event.id }}" data-bs-toggle="modal"
-            data-bs-target="#deleteEventModal">
-            Delete
-        </button>
-        {% if user == event.creator %}
-        <a href="{% url 'events:edit_event' event.id %}" class="btn btn-primary">
-            Edit
-        </a>
-        {% endif %}
-        {% endif %}
-        {% endif %}
-        <a class="btn btn-secondary" href="{% url 'event_detail' event.id %}">View full event details</a>
+        <div class="event-buttons-container">
+            <button class="event-btn btn btn-danger delete-event-btn" data-event-id="{{ event.id }}"
+                data-bs-toggle="modal" data-bs-target="#deleteEventModal">
+                Delete
+            </button>
+            {% if user == event.creator %}
+            <a href="{% url 'events:edit_event' event.id %}" class="event-btn btn btn-primary">
+                Edit
+            </a>
+
+            {% endif %}
+            {% endif %}
+            {% endif %}
+        </div>
     </div>
 
     {% endfor %}
