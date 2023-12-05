@@ -115,6 +115,11 @@
         <div class="row">
             <p class="logged-in-user">Logged in as: <strong>{{ user }}</strong></p>
         </div>
+        {% else %}
+        <div class="row">
+            <p class="logged-in-user">You are not currently logged in.</p>
+            <p>Click <a href="{% url 'account_login' %}">Here</a> to log in.</p>
+        </div>
         {% endif %}
         {% block content %}
         <!-- Content goes here -->
