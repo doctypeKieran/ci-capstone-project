@@ -46,3 +46,20 @@ class BookEventModel(models.Model):
     event = models.ForeignKey(EventModel, on_delete=models.CASCADE)
     num_of_tickets = models.PositiveIntegerField(default=1, choices=[(i, i) for i in range(1, 11)])
     date_booked = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        ticket_plural = 'ticket' if self.num_of_tickets == 1 else 'tickets'
+        return f"Event: {self.event.title} booked by '{self.user}' with {self.num_of_tickets} {ticket_plural}."
+
+
+class Review(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    event = models.ForeignKey(EventModel, on_delete=models.CASCADE)
+    review_title = models.CharField(max_length=150)
+    review_text = models.TextField()
+    review_score = models.PositiveIntegerField(default=1, choices=[(i, i) for i in range(1, 6)])
+    review_submitted = models.DateTimeField(auto_now_add=True)
+    approved = models.BooleanField(default=False)
+
+    def __str__(self):
+        return f"Review: {self.review_title} submitted by {self.user} on {self.review_submitted}"
