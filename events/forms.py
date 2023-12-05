@@ -90,3 +90,16 @@ class ReviewForm(forms.ModelForm):
         self.fields['review_title'].widget.attrs.update({'class': 'form-input-field'})
         self.fields['review_text'].widget.attrs.update({'class': 'form-input-field'})
         self.fields['review_score'].widget.attrs.update({'class': 'form-input-field'})
+
+
+class EditReviewForm(forms.ModelForm):
+    class Meta:
+        model = Review
+        fields = ['review_title', 'review_text', 'review_score']
+
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['review_title'].widget.attrs.update({'class': 'form-input-field'})
+        self.fields['review_text'].widget.attrs.update({'class': 'form-input-field'})
+        self.fields['review_score'].widget.attrs.update({'class': 'form-input-field'})
