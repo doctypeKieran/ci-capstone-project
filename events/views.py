@@ -5,8 +5,8 @@ from django.contrib import messages
 from django.core.paginator import Paginator
 from django.urls import reverse
 
-from .models import EventModel, BookEventModel
-from .forms import EventCreationForm, EventEditForm, BookingForm
+from .models import EventModel, BookEventModel, Review
+from .forms import EventCreationForm, EventEditForm, BookingForm, ReviewForm
 
 # Create your views here.
 
@@ -37,9 +37,26 @@ def all_events(request):
 
 def event_detail(request, event_id):
     event = get_object_or_404(EventModel, pk=event_id)
+    reviews = Review.objects.filter(event=event, approved=True)
+
+    if request.method == 'POST':
+        review_form = ReviewForm(request.POST)
+        if review_form.is_valid():
+            review = review_form.save(commit=False)
+            review.user = request.user
+            review.event = event
+            review.save()
+
+            messages.success(request, 'Your review has been submitted and is pending approval.')
+
+            return redirect('event_detail', event_id=event_id)
+    else:
+        review_form = ReviewForm()
 
     context = {
         'event': event,
+        'reviews': reviews,
+        'review_form': review_form
     }
 
     return render(request, 'events/event_detail.html', context)
@@ -193,7 +210,7 @@ def event_approval(request, event_id):
     event = get_object_or_404(EventModel, pk=event_id)
 
     if request.method == 'POST':
-        action = request.POST.get('action', '')  # Get the action from the form
+        action = request.POST.get('action', '')
 
         if action == 'approve':
             event.approved = True
@@ -201,7 +218,6 @@ def event_approval(request, event_id):
             messages.success(request, f'Event {event.title} has been approved.')
 
         elif action == 'reject':
-            # Delete the event and display a success message
             event.delete()
             messages.success(request, 'Event has been rejected and deleted.')
 
@@ -213,3 +229,15 @@ def event_approval(request, event_id):
     }
 
     return render(request, 'events/event_approval.html', context)
+
+
+def user_pending_reviews(request):
+    pending_reviews = Review.objects.filter(user=request.user, approved=False)
+
+    print(pending_reviews)
+
+    context = {
+        'pending_reviews': pending_reviews,
+    }
+
+    return render(request, 'events/user_pending_reviews.html', context)
