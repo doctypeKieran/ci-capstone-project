@@ -65,7 +65,12 @@
 <i class="fa-solid fa-star"></i>
 <i class="fa-solid fa-star"></i>
 <i class="fa-solid fa-star"></i>
+{% endif %}
 
+{% if user == review.user %}
+<a href="{% url 'events:edit_review' review.id %}" class="btn btn-primary d-block w-50">
+    Edit
+</a>
 {% endif %}
 {% endfor %}
 {% endblock %}
