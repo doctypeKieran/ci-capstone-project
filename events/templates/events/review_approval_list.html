@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}Pending Reviews{% endblock %}
+
+{% block content %}
+
+{% for review in pending_reviews %}
+
+<h1>{{ review.review_title }}</h1>
+<h3>{{ review.review_text }}</h3>
+<p>{{ review.event }}</p>
+<p>Created by {{ review.user }}</p>
+
+<form method="POST" action="{% url 'events:review_approval' review.id %}">
+    {% csrf_token %}
+    <button class="btn btn-success" type="submit" name="action" value="approve">Approve</button>
+    <button class="btn btn-danger" type="submit" name="action" value="reject">Reject</button>
+</form>
+
+{% endfor %}
+
+{% endblock %}
