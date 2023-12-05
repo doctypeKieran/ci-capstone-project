@@ -232,6 +232,42 @@ def event_approval(request, event_id):
 
 
 @login_required
+def review_approval_list(request):
+    if not request.user.is_superuser:
+        return render(request, 'unauthorized.html')
+
+    pending_reviews = Review.objects.filter(approved=False)
+
+    context = {
+        'pending_reviews': pending_reviews,
+    }
+
+    return render(request, 'events/review_approval_list.html', context)
+
+
+@login_required
+def review_approval(request, review_id):
+    if not request.user.is_superuser:
+        return render(request, 'unauthorized.html')
+
+    review = get_object_or_404(Review, pk=review_id)
+
+    if request.method == 'POST':
+        action = request.POST.get('action', '')
+
+        if action == 'approve':
+            review.approved = True
+            review.save()
+            messages.success(request, f'Review by {review.user} has been approved.')
+        elif action == 'reject':
+            review.delete()
+            messages.success(request, 'Review has been rejected and deleted.')
+    
+    return redirect('events:review_approval_list')
+
+
+
+@login_required
 def user_pending_reviews(request):
     pending_reviews = Review.objects.filter(user=request.user, approved=False)
 
