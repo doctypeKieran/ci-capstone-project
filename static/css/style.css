@@ -71,6 +71,11 @@
     border: 1px solid rgba(0, 0, 0, 0.4);
     border-radius: 20px;
     box-shadow: -4px 6px 4px 4px rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: .75rem;
 }
 
 .event-title {
@@ -110,12 +115,25 @@ span.user {
     font-size: 1.5rem;
 }
 
-.event-teaser {
-    font-size: 1rem;
+.event-venue {
+    font-style: italic;
 }
 
-.event-info-container {
-    margin: 1rem 0;
+.event-teaser {
+    font-size: 1rem;
+    text-align: center;
+}
+
+.event-buttons-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: .5rem;
+}
+
+.event-buttons-container .event-btn {
+    width: 200px;
 }
 
 /* --------------------Event Details Styles */
@@ -194,4 +212,39 @@ span.user {
 .social-icon:hover {
     transform: scale(1.2);
     text-shadow: 0px 0px 4px rgba(255, 255, 255, 0.5);
+}
+
+/* ---------------Media Queries */
+
+@media screen and (max-width: 996px) {
+    #main-content {
+        padding: 0 2rem;
+    }
+
+    .events-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    #main-content {
+        padding: 0 1rem;
+    }
+
+    .events-grid {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .event-container {
+        gap: 1.25rem;
+    }
+
+    .event-buttons-container {
+        width: 100%;
+        gap: 1rem;
+    }
+
+    .event-buttons-container .event-btn {
+        width: 100%;
+    }
 }
