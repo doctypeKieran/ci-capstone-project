@@ -16,6 +16,12 @@ body {
     margin-bottom: 3rem;
 }
 
+.page-title {
+    font-family: 'Merriweather', serif;
+    font-size: 3rem;
+    font-weight: 700;
+}
+
 /* --------------------Button styles */
 
 .custom-btn {
