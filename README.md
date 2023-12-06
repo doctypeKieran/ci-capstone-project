@@ -1,6 +1,6 @@
 # [Musicality](https://musicality-event-booking-app-e0cfc73239f6.herokuapp.com/)
 
-***SCREENSHOT HERE***
+![screenshot](documentation/ci-capstone-amiresponsive.png)
 
 As a lover of classical music, I yearn to become immersed within a grand concert hall, basking in the warm glow of radiant oak and mahogany, and becoming washed away in an ocean rich with choral violins and cellos, transcendent piano scales, and triumphant brass crescendos. However, I have often found myself pained by jumbled heaps of vague concert information from other sites and, when I manage to find something which peaks my interest, it seldom satisfies precisely what I'm looking for.
 
