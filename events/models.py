@@ -42,6 +42,12 @@ class EventModel(models.Model):
 
 
 class BookEventModel(models.Model):
+    """
+    A model for users to book events, using the current user and
+    current event as foreign keys to correlate with the event being
+    booked by the currently logged in user. The user can select a number
+    of tickets: a minimum of 1, a maximum of 10.
+    """
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     event = models.ForeignKey(EventModel, on_delete=models.CASCADE)
     num_of_tickets = models.PositiveIntegerField(default=1, choices=[(i, i) for i in range(1, 11)])
@@ -53,6 +59,13 @@ class BookEventModel(models.Model):
 
 
 class Review(models.Model):
+    """
+    A model for users to leave reviews, using the current event and
+    user as foreign keys to correlate to the current event being
+    reviewed by the currently logged-in user. Review score will be
+    options with a minumum of 1, maximum of 5, and will be unapproved
+    by default.
+    """
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     event = models.ForeignKey(EventModel, on_delete=models.CASCADE)
     review_title = models.CharField(max_length=150)
