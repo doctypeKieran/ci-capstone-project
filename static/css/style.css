@@ -338,10 +338,23 @@ span.user {
         align-items: center;
         gap: 1.5rem;
     }
+
+    /* Forms */
+    .form-input-field {
+        width: 100%;
+    }
+    .form-date-time-field {
+        width: 50%;
+    }
 }
 
 @media screen and (max-width: 350px) {
     #main-nav .navbar-brand {
         font-size: 1.75rem;
+    }
+    
+    /* Forms */
+    .form-date-time-field {
+        width: 75%;
     }
 }
