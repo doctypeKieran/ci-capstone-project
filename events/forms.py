@@ -2,6 +2,11 @@ from django import forms
 from .models import EventModel, BookEventModel, Review
 
 class EventCreationForm(forms.ModelForm):
+    """
+    Form for users to create events which works off the `EventModel`. 
+    Uses widgets to assign input types to `event_date` and `event_time`.
+    Also assigns classes to input fields.
+    """
     class Meta:
         model = EventModel
         fields = [
@@ -35,6 +40,10 @@ class EventCreationForm(forms.ModelForm):
 
 
 class EventEditForm(forms.ModelForm):
+    """
+    Form for users to edit their created events. This form contains
+    the exact same functionality as the `EventCreationForm`.
+    """
     class Meta:
         model = EventModel
         fields = [
@@ -68,6 +77,11 @@ class EventEditForm(forms.ModelForm):
 
 
 class BookingForm(forms.ModelForm):
+    """
+    Form for users to book an event using the `BookEventModel`. Uses
+    widgets in the `__init__` method to assign a select input field
+    type to the `num_of_tickets` field.
+    """
     class Meta:
         model = BookEventModel
         fields = ['num_of_tickets']
@@ -80,6 +94,11 @@ class BookingForm(forms.ModelForm):
 
 
 class ReviewForm(forms.ModelForm):
+    """
+    Form for users to leave reviews on events using the `Review`
+    model. Uses widgets to add class attributes and values to
+    each input field.
+    """
     class Meta:
         model = Review
         fields = ['review_title', 'review_text', 'review_score']
@@ -93,6 +112,10 @@ class ReviewForm(forms.ModelForm):
 
 
 class EditReviewForm(forms.ModelForm):
+    """
+    Form for users to edit their events. This form uses the exact
+    same functionality as `ReviewForm`.
+    """
     class Meta:
         model = Review
         fields = ['review_title', 'review_text', 'review_score']
