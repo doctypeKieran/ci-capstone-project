@@ -4,22 +4,31 @@
 {% block title %}My Pending Events{% endblock %}
 
 {% block content %}
+<h1>My Pending Events</h1>
 {% if user.is_authenticated %}
 {% if user.is_superuser %}
 <p>You are a superuser. Superusers do not have pending events.</p>
 {% else %}
 {% if pending_events %}
-<ul>
+<section class="pending-events-container">
     {% for event in pending_events %}
-    <li>
-        {{ event.title }}
+    <div class="pending-event mb-3">
+        <h1>{{ event.title }}</h1>
+        <h3>{{ event.teaser }}</h3>
+        <div class="event-info-container">
+            <p><strong>Price: </strong>£{{ event.ticket_price|floatformat:2 }}</p>
+            <p><strong>Date: </strong>{{ event.event_date }}</p>
+            <p><strong>Time: </strong>{{ event.event_time }}</p>
+        </div>
         {% if user == event.creator %}
-        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteEventModal{{ event.id }}">
+        <button type="button" class="btn btn-danger d-block" data-bs-toggle="modal"
+            data-bs-target="#deleteEventModal{{ event.id }}">
             Delete
         </button>
 
         <!-- Modal -->
-        <div class="modal fade" id="deleteEventModal{{ event.id }}" tabindex="-1" aria-labelledby="deleteEventModalLabel{{ event.id }}" aria-hidden="true">
+        <div class="modal fade" id="deleteEventModal{{ event.id }}" tabindex="-1"
+            aria-labelledby="deleteEventModalLabel{{ event.id }}" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -40,9 +49,9 @@
             </div>
         </div>
         {% endif %}
-    </li>
+    </div>
     {% endfor %}
-</ul>
+</section>
 {% else %}
 <p>No pending events for approval.</p>
 {% endif %}
