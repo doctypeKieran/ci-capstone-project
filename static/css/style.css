@@ -112,6 +112,11 @@ body {
     font-size: 1.25rem;
 }
 
+.nav-item a.nav-link.active-link {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
 .navbar-nav .nav-item a.nav-link:hover {
     text-decoration: underline;
 }
