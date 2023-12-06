@@ -12,6 +12,11 @@ from .forms import EventCreationForm, EventEditForm, BookingForm, ReviewForm, Ed
 
 
 def index(request):
+    """
+    The home page view.  This will render the index.html
+    template which will only display events from the events 
+    model which are approved.
+    """
     events = EventModel.objects.filter(approved=True)
 
     context = {
@@ -21,6 +26,13 @@ def index(request):
 
 
 def all_events(request):
+    """
+    This view will render all events which are approved on
+    a separate page, 'all-events', which will use the
+    'all_events.html' template.  The use of the Django
+    Paginator will ensure that only six get displayed at a
+    time before a new page is created.
+    """
     events = EventModel.objects.filter(approved=True)
 
     paginator = Paginator(events, 6)
@@ -36,6 +48,14 @@ def all_events(request):
 
 
 def event_detail(request, event_id):
+    """
+    The purpose of this view is to display the full details of
+    a particular event. Reviews for the selected event will
+    also be shown at the bottom of the current event details.
+    Providing the currently logged in user isn't the user who
+    created the event, they can also submit a new review which
+    will be put up for approval by an admin.
+    """
     event = get_object_or_404(EventModel, pk=event_id)
     reviews = Review.objects.filter(event=event, approved=True)
 
@@ -64,6 +84,13 @@ def event_detail(request, event_id):
 
 @login_required
 def create_event(request):
+    """
+    Logged in users will be able to create an event with the use
+    of the `EventCreationForm` which uses fields from the
+    `EventModel` form. Once an event has been created, it will
+    be put up for review by an admin and redirect the user back
+    to the home page.
+    """
     if request.method == 'POST':
         form = EventCreationForm(request.POST)
         if form.is_valid():
@@ -85,6 +112,14 @@ def create_event(request):
 
 
 def edit_event(request, event_id):
+    """
+    Using the `EventEditForm`, users can edit their previously
+    created events. The fields will be prepopulated with the
+    exact same data as their previous event by creating an
+    instance of the current event model and rendering that
+    as a new form to be edited. Once the changes are submitted,
+    the edited event will go back up for approval.
+    """
     event = get_object_or_404(EventModel, pk=event_id, creator=request.user)
 
     if request.method == 'POST':
@@ -109,6 +144,15 @@ def edit_event(request, event_id):
 
 @login_required
 def delete_event(request, event_id):
+    """
+    A logged in user has the ability to delete their own
+    event. A superuser has the ability to delete any event,
+    enabling them to keep the site clean of redundant events.
+
+    Should a user attempt to perform this functionality and they
+    aren't a superuser/the user who created the event, they will
+    receive an error message.
+    """
     event = get_object_or_404(EventModel, pk=event_id)
 
     if request.user == event.creator or request.user.is_superuser:
@@ -123,6 +167,12 @@ def delete_event(request, event_id):
 
 @login_required
 def book_event(request, event_id):
+    """
+    Once a user clicks to book an event, they will be directed
+    to a "book_event.html" template where they can select
+    how many tickets they'd like to book for that event by
+    using the `BookingForm` form.
+    """
     event = get_object_or_404(EventModel, pk=event_id)
 
     if request.method == 'POST':
@@ -148,6 +198,12 @@ def book_event(request, event_id):
 
 @login_required
 def user_booked_events(request):
+    """
+    This view will display all booked events by the current
+    user on a 'booked_events.html' template. With the use of a
+    filter, only the current user's booked events will be displayed
+    here.
+    """
     booked_events = BookEventModel.objects.filter(user=request.user)
 
     context = {
@@ -158,6 +214,12 @@ def user_booked_events(request):
 
 
 def delete_booked_event(request, booking_id):
+    """
+    Users can also delete their booked events should they feel
+    the desire to no longer attend. `booked_event` will ensure that
+    the the logged in user is the user making the request, and that
+    the booking being deleted is the booking which was created.
+    """
     booked_event = get_object_or_404(BookEventModel, pk=booking_id, user=request.user)
 
     if request.method == 'POST':
@@ -169,6 +231,12 @@ def delete_booked_event(request, booking_id):
 
 @login_required
 def user_pending_events(request):
+    """
+    Once a user creates an event, it will go up for approval. Users
+    can see their pending approvals in the rendered template, and
+    they are also welcome to delete their pending approvals if they
+    do not wish for them to be approved.
+    """
     pending_events = EventModel.objects.filter(creator=request.user, approved=False)
 
     context = {
@@ -180,6 +248,11 @@ def user_pending_events(request):
 
 @login_required
 def delete_pending_event(request, event_id):
+    """
+    This view handles the logic for deleting user pending reviews by
+    filtering unapproved events and ensuring that the user who made
+    the request is also the event creator.
+    """
     event = get_object_or_404(EventModel, pk=event_id, creator=request.user, approved=False)
 
     event.delete()
@@ -190,6 +263,13 @@ def delete_pending_event(request, event_id):
 
 @login_required
 def event_approval_list(request):
+    """
+    For superusers only.
+    Superusers can see which events need to be approved by displaying
+    unapproved events. If a user attempts to navigate to this page
+    and is not a superuser, they will be directed to a template,
+    `unauthorized.html`.
+    """
     if not request.user.is_superuser:
         return render(request, 'unauthorized.html')
     
@@ -204,6 +284,14 @@ def event_approval_list(request):
 
 @login_required
 def event_approval(request, event_id):
+    """
+    For superusers only.
+    From the event approval list, a superuser can approve
+    or reject an event depending on the action of the button 
+    which is clicked. The `approve` action button will approve 
+    of an event. Similarly, the `reject` action button will
+    reject the event and delete it from the database permanently.
+    """
     if not request.user.is_superuser:
         return render(request, 'unauthorized.html')
 
@@ -233,6 +321,13 @@ def event_approval(request, event_id):
 
 @login_required
 def review_approval_list(request):
+    """
+    For superusers only.
+    A superuser can see a list of pending reviews which are
+    unapproved. If a user who is not a superuser attempts to
+    navigate to this link, they will be directed to a template,
+    `unauthorized.html`.
+    """
     if not request.user.is_superuser:
         return render(request, 'unauthorized.html')
 
@@ -247,6 +342,12 @@ def review_approval_list(request):
 
 @login_required
 def review_approval(request, review_id):
+    """
+    For superusers only.
+    This view handles the logic for approving or rejecting
+    event reviews in the exact same manner of approving or
+    rejecting created events.
+    """
     if not request.user.is_superuser:
         return render(request, 'unauthorized.html')
 
@@ -269,9 +370,11 @@ def review_approval(request, review_id):
 
 @login_required
 def user_pending_reviews(request):
+    """
+    Just as users can see their pending events, users can
+    also see reviews which are pending approval.
+    """
     pending_reviews = Review.objects.filter(user=request.user, approved=False)
-
-    print(pending_reviews)
 
     context = {
         'pending_reviews': pending_reviews,
@@ -282,6 +385,13 @@ def user_pending_reviews(request):
 
 @login_required
 def edit_review(request, review_id):
+    """
+    Using the same logic as `edit_event`, a user can edit
+    their review. Once the review is edited, it goes back
+    up for approval. This logic flow ensures that users can't
+    submit a clean review and then edit it with offensive/vulgar
+    language.
+    """
     review = get_object_or_404(Review, pk=review_id, user=request.user)
 
     if request.method == 'POST':
