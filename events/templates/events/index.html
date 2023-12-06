@@ -40,17 +40,18 @@
                     User Options
                 </button>
                 <ul class="dropdown-menu">
-                    <button class="custom-btn custom-btn__danger mb-2" data-event-id="{{ event.id }}" data-bs-toggle="modal"
-                        data-bs-target="#deleteEventModal">
+                    <button class="custom-btn custom-btn__danger mb-2" data-event-id="{{ event.id }}"
+                        data-bs-toggle="modal" data-bs-target="#deleteEventModal">
                         Delete
                     </button>
                     {% if user == event.creator %}
                     <a href="{% url 'events:edit_event' event.id %}" class="custom-btn custom-btn__tertiary">
                         Edit
                     </a>
+                    {% endif %}
                 </ul>
             </div>
-            {% endif %}
+
         </div>
         {% endif %}
         {% endif %}
