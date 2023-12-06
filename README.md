@@ -1,110 +1,70 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# [Musicality](https://musicality-event-booking-app-e0cfc73239f6.herokuapp.com/)
 
-Welcome Kieran Hillman,
+***SCREENSHOT HERE***
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+As a lover of classical music, I yearn to become immersed within a grand concert hall, basking in the warm glow of radiant oak and mahogany, and becoming washed away in an ocean rich with choral violins and cellos, transcendent piano scales, and triumphant brass crescendos. However, I have often found myself pained by jumbled heaps of vague concert information from other sites and, when I manage to find something which peaks my interest, it seldom satisfies precisely what I'm looking for.
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **September 1, 2021**
+## Introducing **Musicality.**
 
-## Gitpod Reminders
+Musicality is a simple yet stunningly effective web application powered by HTML, CSS, Bootstrap, JavaScript, Python, Django, and ElephantSQL. It was designed with but one purpose: to forge and unite a community of classical music lovers around the world, where anyone with a passion for strings and flutes can find a concert event near them. Details of an event will be presented clearly, giving users all the information they need, such as:
+- Who's performing the music
+- Where the event will take place (both city and venue)
+- When the event will take place (date and time)
+- How much it will cost to attend (per person)
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+If the user so desires, they can view additional details about the event which will provide them with more information about what they may or may not be interested in attending. Allowing users to really see precisely what they're going for is the most efficent way to ensure that they are fully satisfied with the service.
 
-`python3 -m http.server`
+But what if someone is visiting the site with the intention of creating an event which will then be displayed to other users?
 
-A blue button should appear to click: _Make Public_,
+They can accomplish that, too. ANY user has the ability to create an event of their choosing, filling in all the required details. Fortunately, Musicality is equipped with a thorough validation system to ensure that users can't create mock events, or events with erroneous information. All events which are created by users are put up for review by a site admin, who can then scour through each created event and ensure that it is accurate in terms of details, as well as established with correct details and clear information.
 
-Another blue button should appear to click: _Open Browser_.
+Who is Musicality *really* intended to be used by? The answer is very simple: ***anyone.***
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+Anyone who possesses a mouse and keyboard, a tablet, or a phone can use Musicality, because ultimately, ***anyone*** can an infatuation for music. Other sites may attempt to disregard those who are not of a high status, but Musicality is a community for all. For those who have trudged through sites which present messy, unclear information when they just want to simply book a classical music concert event: look no further. Musicality takes all the hassle away and displays precisely what you're looking for. Once a user has found an event which they would like to attend, they simply book the event, at which point they will be alerted that their event is booked and ready for them to attend.
 
-A blue button should appear to click: _Make Public_,
+Simple design, seamless navigation, and the aesthetic presentation of concise information. These are the qualities which Musicality strives to achieve.
 
-Another blue button should appear to click: _Open Browser_.
+## UX
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+### Colour Scheme
 
-To log into the Heroku toolbelt CLI:
+- `#fafafa`: an off-white color used for primary text.
+- `#010150`: a dark-blue color used for the nav, footer, and primary buttons.
+- `#3838a0`: a lighter blue used for secondary buttons.
+- `#525252`: A darkish grey used for tertiary buttons/elements.
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+I used [coolors.co](https://coolors.co/e84610-009fe3-4a4a4f-445261-d63649-e6ecf0-000000) to generate my colour palette:
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
+![screenshot](documentation/coolors-capstone-palette.png)
 
-------
+### Typography
 
-## Release History
+- I used [Montserrat](https://fonts.google.com/specimen/Montserrat) for the main body text of the website. I chose this font due to its professional appearance when displaying information.
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+- I used [Merriweather](https://fonts.google.com/specimen/Merriweather) for titles and navigation links, giving the site a more formal feel. Between this font and Montserrat, the site blended beautifully with a mix of informality and professionalism, reinforcing the fact that the site is for anyone and everyone.
 
-**September 20 2023:** Update Python version to 3.9.17.
+- I used [Font Awesome](https://fontawesome.com) icons for the footer, allowing me to present links to social media platforms in a succinct manner.
 
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
+## User Stories
 
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
+- As a User (viewer/member) I can see upcoming events so that I can book an event within a short space of time.
+- As a User (viewer) I can sign up as a member so that I can access the full features of the site.
+- As a user (any role) I can see icons for the product's socials so that I can keep up to date with news through social media.
+- As a user (any role) I can view a paginated list of events so that I can navigate through events and select which one to view/book.
+- As a new site user, I would like to ____________, so that I can ____________.
 
-**July 2 2021:** Remove extensions that are not available in Open VSX.
+### Returning Site Users
 
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
+- As a Logged in user I can write a review for an event so that I can tell others about my experience.
+- As a Logged in user I can edit or my review on an event so that I can amend my review with additional information/fix mistakes.
+- As a Logged in user I can click on events and see more details so that I can see more information/reviews about the event and potentially book it.
+- As a logged in user I can read reviews on events so that I can see if it's suitable for me.
+- As a logged in user I can create an event so that I can list an upcoming event for other users to book.
+- As a logged in user I can delete my own created event so that I can ensure that irrelevant events are not booked by others.
+- As a logged in user I can edit an event that I created so that I can update information about the event if it changes.
+- As a logged in user I can book an event so that I can attend an event which I'm interested in.
 
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
+### Site Admin
 
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
-
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
-
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
-
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
-
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
-
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
-
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
-
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
-
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
-
-------
-
-## FAQ about the uptime script
-
-**Why have you added this script?**
-
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
-
-**How will this affect me?**
-
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
-
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
-
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
-
-**So….?**
-
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
-
-**Can I opt out?**
-
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
-
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
-
-**Anything more?**
-
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
-
----
-
-Happy coding!
+- As a Site admin I can approve or reject events from creators so that I can ensure that only proper events are listed to members.
+- As a Site admin I can approve reviews so that I can filter out objectionable reviews from users.
