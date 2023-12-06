@@ -3,10 +3,11 @@
 {% block title %}Pending Reviews{% endblock %}
 
 {% block content %}
-
+<h1>Pending Reviews</h1>
+{% if pending_reviews %}
 {% for review in pending_reviews %}
 
-<h1>{{ review.review_title }}</h1>
+<h2>{{ review.review_title }}</h2>
 <h3>{{ review.review_text }}</h3>
 <p>{{ review.event }}</p>
 <p>Created by {{ review.user }}</p>
@@ -18,5 +19,9 @@
 </form>
 
 {% endfor %}
+
+{% else %}
+<p>No pending reviews at the moment.</p>
+{% endif %}
 
 {% endblock %}
