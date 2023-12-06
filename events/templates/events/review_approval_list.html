@@ -14,8 +14,8 @@
 
 <form method="POST" action="{% url 'events:review_approval' review.id %}">
     {% csrf_token %}
-    <button class="btn btn-success" type="submit" name="action" value="approve">Approve</button>
-    <button class="btn btn-danger" type="submit" name="action" value="reject">Reject</button>
+    <button class="custom-btn custom-btn__primary" type="submit" name="action" value="approve">Approve</button>
+    <button class="custom-btn custom-btn__danger" type="submit" name="action" value="reject">Reject</button>
 </form>
 
 {% endfor %}

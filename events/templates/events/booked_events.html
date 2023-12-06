@@ -11,7 +11,7 @@
 <p>Number of tickets: {{ booked_event.num_of_tickets }}</p>
 <form method="POST" action="{% url 'events:delete_booking' booked_event.id %}">
     {% csrf_token %}
-    <button class="btn btn-danger" type="submit">Delete Booking</button>
+    <button class="custom-btn custom-btn__danger" type="submit">Delete Booking</button>
 </form>
 {% endfor %}
 {% else %}

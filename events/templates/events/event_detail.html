@@ -15,7 +15,7 @@
     {% else %}
     <img class="event-detail-img placeholder-img" src="{% static 'images/placeholder.webp' %}" alt="Image of orchestra conductor">
     {% endif %}
-    <a href="{% url 'events:book_event' event.id %}" class="book-now-btn btn btn-success mt-3">Book Now</a>
+    <a href="{% url 'events:book_event' event.id %}" class="custom-btn custom-btn__primary mt-3 mx-auto">Book Now</a>
     <hr>
     <h3 class="event-location">{{ event.city }}, UK</h3>
     <p>Taking place at {{ event.venue }}</p>
@@ -37,7 +37,7 @@
 <form method="POST">
     {% csrf_token %}
     {{ review_form|crispy }}
-    <button class="btn btn-success" type="submit">Submit Review</button>
+    <button class="custom-btn custom-btn__secondary" type="submit">Submit Review</button>
 </form>
 {% endif %}
 {% endif %}

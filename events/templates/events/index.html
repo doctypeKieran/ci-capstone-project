@@ -22,7 +22,6 @@
         <p class="event-venue">Taking place at {{ event.venue }}</p>
         <h2 class="event-teaser">{{ event.teaser }}</h2>
         <div class="event-buttons-container">
-            <a class="event-btn event-details-btn btn btn-success" href="{% url 'event_detail' event.id %}">View full event details</a>
         </div>
         <div class="event-info-container">
             <p><strong>Price: </strong>£{{ event.ticket_price|floatformat:2 }}</p>
@@ -30,16 +29,27 @@
             <p><strong>Time: </strong>{{ event.event_time }}</p>
         </div>
         {% if user.is_authenticated %}
+        <a class="custom-btn custom-btn__primary" href="{% url 'event_detail' event.id %}">
+            View full event details
+        </a>
         {% if user == event.creator or user.is_superuser %}
         <div class="event-buttons-container">
-            <button class="event-btn btn btn-danger delete-event-btn" data-event-id="{{ event.id }}"
-                data-bs-toggle="modal" data-bs-target="#deleteEventModal">
-                Delete
-            </button>
-            {% if user == event.creator %}
-            <a href="{% url 'events:edit_event' event.id %}" class="event-btn btn btn-primary">
-                Edit
-            </a>
+            <div class="dropdown">
+                <button class="custom-btn custom-btn__secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    User Options
+                </button>
+                <ul class="dropdown-menu">
+                    <button class="custom-btn custom-btn__danger mb-2" data-event-id="{{ event.id }}" data-bs-toggle="modal"
+                        data-bs-target="#deleteEventModal">
+                        Delete
+                    </button>
+                    {% if user == event.creator %}
+                    <a href="{% url 'events:edit_event' event.id %}" class="custom-btn custom-btn__tertiary">
+                        Edit
+                    </a>
+                </ul>
+            </div>
             {% endif %}
         </div>
         {% endif %}
@@ -60,8 +70,8 @@
                 Are you sure you want to delete this event?
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <a href="#" class="btn btn-danger" id="confirmDeleteBtn">Delete</a>
+                <button type="button" class="custom-btn custom-btn__tertiary" data-bs-dismiss="modal">Close</button>
+                <a href="#" class="custom-btn custom-btn__danger" id="confirmDeleteBtn">Delete</a>
             </div>
         </div>
     </div>

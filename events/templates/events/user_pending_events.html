@@ -21,7 +21,7 @@
             <p><strong>Time: </strong>{{ event.event_time }}</p>
         </div>
         {% if user == event.creator %}
-        <button type="button" class="btn btn-danger d-block" data-bs-toggle="modal"
+        <button type="button" class="custom-btn custom-btn__danger d-block" data-bs-toggle="modal"
             data-bs-target="#deleteEventModal{{ event.id }}">
             Delete
         </button>
@@ -39,10 +39,10 @@
                         Are you sure you want to delete this event?
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="custom-btn custom-btn__tertiary" data-bs-dismiss="modal">Close</button>
                         <form method="post" action="{% url 'events:delete_pending_event' event.id %}">
                             {% csrf_token %}
-                            <button type="submit" class="btn btn-danger">Delete</button>
+                            <button type="submit" class="custom-btn custom-btn__danger">Delete</button>
                         </form>
                     </div>
                 </div>

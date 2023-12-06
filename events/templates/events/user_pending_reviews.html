@@ -7,5 +7,6 @@
 
 {% for review in pending_reviews %}
 <h2>{{ review.review_title }}</h2>
+<p>Submitted on: {{ review.review_submitted }}</p>
 {% endfor %}
 {% endblock %}
