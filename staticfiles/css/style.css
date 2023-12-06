@@ -1,12 +1,19 @@
 /* --------------------Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
 
 /* --------------------General Styles */
+
+html,
+body {
+    font-family: "Montserrat", sans-serif;
+}
 
 #main-content {
     padding: 0 5rem;
     min-height: 100vh;
+    margin-bottom: 3rem;
 }
 
 /* --------------------Navbar styles */
@@ -49,6 +56,39 @@
     align-items: center;
 }
 
+.nav-item a.nav-link {
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.navbar-nav .nav-item a.nav-link:hover {
+    text-decoration: underline;
+}
+
+.navbar-nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.hamburger-icon {
+    font-size: 1.5rem;
+}
+
+.hamburger-btn {
+    border: 1px solid #fafafa;
+}
+
+ul.dropdown-menu {
+    border: 1px solid #fafafa;
+    padding: .5rem;
+}
+
+ul.dropdown-menu .dropdown-divider {
+    border-top: 1px solid #fafafa;
+}
+
 /* --------------------Event container styles */
 
 .events-grid {
@@ -67,14 +107,18 @@
 .event-container {
     padding: 1rem;
     margin-top: .5rem;
-    margin-bottom: 3rem;
     border: 1px solid rgba(0, 0, 0, 0.4);
     border-radius: 20px;
     box-shadow: -4px 6px 4px 4px rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: .75rem;
 }
 
 .event-title {
-    font-size: 1.5rem;
+    font-size: 1.75rem;
     font-family: 'Merriweather', serif;
 }
 
@@ -95,7 +139,6 @@ span.user {
 }
 
 .event-container img {
-    margin: 0 0 1rem;
     width: 100%;
     border-radius: 20px;
     object-fit: cover;
@@ -110,19 +153,48 @@ span.user {
     font-size: 1.5rem;
 }
 
-.event-teaser {
-    font-size: 1rem;
+.event-venue {
+    font-style: italic;
 }
 
-.event-info-container {
-    margin: 1rem 0;
+.event-teaser {
+    font-size: 1rem;
+    text-align: center;
+}
+
+.event-buttons-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: .5rem;
+}
+
+.event-buttons-container .event-btn {
+    width: 200px;
 }
 
 /* --------------------Event Details Styles */
 
+.event-detail-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.event-detail-img {
+    width: 100%;
+    max-width: 800px;
+    object-fit: cover;
+    margin: 0 auto;
+    border-radius: 12px;
+}
+
 .book-now-btn {
     display: block;
     width: 100px;
+    margin: 0 auto;
 }
 
 /* --------------------Pagination Styles */
@@ -194,4 +266,47 @@ span.user {
 .social-icon:hover {
     transform: scale(1.2);
     text-shadow: 0px 0px 4px rgba(255, 255, 255, 0.5);
+}
+
+/* ---------------Media Queries */
+
+@media screen and (max-width: 996px) {
+    #main-content {
+        padding: 0 2rem;
+    }
+
+    .nav-item a.nav-link {
+        font-size: 1.25rem;
+    }
+
+    .events-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    #main-content {
+        padding: 0 1rem;
+    }
+
+    .events-grid {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .event-container {
+        gap: 1.25rem;
+    }
+
+    .event-buttons-container {
+        width: 100%;
+        gap: 1rem;
+    }
+
+    .event-buttons-container .event-btn {
+        width: 100%;
+    }
+
+    .event-title {
+        font-size: 2rem;
+    }
 }
