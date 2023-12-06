@@ -25,6 +25,7 @@ body {
 /* --------------------Button styles */
 
 .custom-btn {
+    font-family: 'Merriweather', serif;
     width: 200px;
     padding: 6px 12px;
     text-decoration: none;
@@ -107,8 +108,8 @@ body {
 }
 
 .nav-item a.nav-link {
-    font-weight: bold;
-    font-size: 1.5rem;
+    font-family: 'Merriweather', serif;
+    font-size: 1.25rem;
 }
 
 .navbar-nav .nav-item a.nav-link:hover {
