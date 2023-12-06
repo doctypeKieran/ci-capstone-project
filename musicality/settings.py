@@ -28,9 +28,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['8000-doctypekier-cicapstonep-s0pobds9fj9.ws-eu106.gitpod.io', '*.herokuapp.com', 'musicality-event-booking-app-e0cfc73239f6.herokuapp.com', '*',]
+ALLOWED_HOSTS = ['8000-doctypekier-cicapstonep-s0pobds9fj9.ws-eu106.gitpod.io', '*.herokuapp.com', 'musicality-event-booking-app-e0cfc73239f6.herokuapp.com',]
 
 
 # Application definition
