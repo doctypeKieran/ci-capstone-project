@@ -1,10 +1,10 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}My Pending Events{% endblock %}
+{% block title %}Your Pending Events{% endblock %}
 
 {% block content %}
-<h1>My Pending Events</h1>
+<h1 class="page-title">Your Pending Events</h1>
 {% if user.is_authenticated %}
 {% if user.is_superuser %}
 <p>You are a superuser. Superusers do not have pending events.</p>

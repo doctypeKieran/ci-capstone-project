@@ -5,7 +5,7 @@
 {% block title %}Edit Event{% endblock %}
 
 {% block content %}
-<h2>Edit Event</h2>
+<h1 class="page-title">Edit Event</h1 >
 <form method="POST">
     {% csrf_token %}
     {{ form|crispy }}

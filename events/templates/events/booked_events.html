@@ -5,6 +5,7 @@
 {% block content %}
 
 {% if booked_events %}
+<h1 class="page-title">Your Booked Events</h1>
 
 {% for booked_event in booked_events %}
 <h1>{{booked_event.event.title}}</h1>
@@ -15,7 +16,7 @@
 </form>
 {% endfor %}
 {% else %}
-<h1>You currently have no booked events.</h1>
+<h1 class="page-title">You currently have no booked events.</h1>
 <p>
     Looking to book an event? Click <a href="/">Here</a> to view the latest events!
 </p>

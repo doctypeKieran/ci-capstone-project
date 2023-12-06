@@ -1,9 +1,9 @@
 {% extends 'base.html' %}
 
-{% block title %}Pending Reviews{% endblock %}
+{% block title %}Your Pending Reviews{% endblock %}
 
 {% block content %}
-<h1>Pending Reviews</h1>
+<h1 class="page-title">Your Pending Reviews</h1>
 
 {% for review in pending_reviews %}
 <h2>{{ review.review_title }}</h2>

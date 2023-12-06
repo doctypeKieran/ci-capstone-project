@@ -7,7 +7,7 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-<h1>Create Event</h1>
+<h1 class="page-title">Create Event</h1>
 <form method="POST">
     {% csrf_token %}
     {{ form|crispy }}
