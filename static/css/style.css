@@ -197,6 +197,27 @@ span.user {
     margin: 0 auto;
 }
 
+/* --------------------User Pending Events Styles */
+
+.pending-event {
+    border: 2px solid rgba(0, 0, 0, 0.4);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    width: fit-content;
+    padding: 1rem;
+}
+
+.pending-event h1,
+.pending-event h3,
+.pending-event p {
+    margin: 0;
+}
+
+
+
 /* --------------------Pagination Styles */
 .pagination {
     display: flex;
@@ -289,6 +310,7 @@ span.user {
         padding: 0 1rem;
     }
 
+    /* Home page and all events */
     .events-grid {
         grid-template-columns: repeat(1, 1fr);
     }
@@ -308,5 +330,18 @@ span.user {
 
     .event-title {
         font-size: 2rem;
+    }
+
+    /* Pending events */
+    .pending-event {
+        width: 100%;
+        align-items: center;
+        gap: 1.5rem;
+    }
+}
+
+@media screen and (max-width: 350px) {
+    #main-nav .navbar-brand {
+        font-size: 1.75rem;
     }
 }
