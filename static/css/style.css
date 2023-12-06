@@ -138,6 +138,7 @@ body {
 
 ul.dropdown-menu {
     border: 1px solid #fafafa;
+    border-radius: 0px;
     padding: .5rem;
 }
 
