@@ -6,7 +6,7 @@ from django.core.paginator import Paginator
 from django.urls import reverse
 
 from .models import EventModel, BookEventModel, Review
-from .forms import EventCreationForm, EventEditForm, BookingForm, ReviewForm, EditReviewForm
+from .forms import EventCreationForm, EventEditForm, BookingForm, ReviewForm, EditReviewForm  # noqa
 
 # Create your views here.
 
@@ -14,7 +14,7 @@ from .forms import EventCreationForm, EventEditForm, BookingForm, ReviewForm, Ed
 def index(request):
     """
     The home page view.  This will render the index.html
-    template which will only display events from the events 
+    template which will only display events from the events
     model which are approved.
     """
     events = EventModel.objects.filter(approved=True)
@@ -67,7 +67,7 @@ def event_detail(request, event_id):
             review.event = event
             review.save()
 
-            messages.success(request, 'Your review has been submitted and is pending approval.')
+            messages.success(request, 'Your review has been submitted and is pending approval.')  # noqa
 
             return redirect('event_detail', event_id=event_id)
     else:
@@ -98,12 +98,12 @@ def create_event(request):
             event.creator = request.user
             event.save()
 
-            messages.success(request, "Your event has been submitted and is pending approval.")
+            messages.success(request, "Your event has been submitted and is pending approval.")  # noqa
 
             return redirect('index')
     else:
         form = EventCreationForm()
-    
+
     context = {
         'form': form,
     }
@@ -127,8 +127,8 @@ def edit_event(request, event_id):
         if form.is_valid():
             event.approved = False
             form.save()
-            
-            messages.success(request, "Your event has been edited and is pending approval.")
+
+            messages.success(request, "Your event has been edited and is pending approval.")  # noqa
 
             return redirect('index')
     else:
@@ -160,7 +160,7 @@ def delete_event(request, event_id):
         messages.success(request, f"Event {event.title} successfully deleted.")
 
     else:
-        messages.error(request, "You don't have permission to delete that event.")
+        messages.error(request, "You don't have permission to delete that event.")  # noqa
 
     return redirect('index')
 
@@ -182,12 +182,12 @@ def book_event(request, event_id):
             booking.user = request.user
             booking.event = event
             booking.save()
-            ticket_plural = 'ticket' if booking.num_of_tickets == 1 else 'tickets'
-            messages.success(request, f'Successfully booked {event.title} with {booking.num_of_tickets} {ticket_plural}')
+            ticket_plural = 'ticket' if booking.num_of_tickets == 1 else 'tickets'  # noqa
+            messages.success(request, f'Successfully booked {event.title} with {booking.num_of_tickets} {ticket_plural}')  # noqa
             return redirect(reverse('event_detail', args=[event.id]))
     else:
         form = BookingForm()
-    
+
     context = {
         'form': form,
         'event': event,
@@ -220,11 +220,11 @@ def delete_booked_event(request, booking_id):
     the the logged in user is the user making the request, and that
     the booking being deleted is the booking which was created.
     """
-    booked_event = get_object_or_404(BookEventModel, pk=booking_id, user=request.user)
+    booked_event = get_object_or_404(BookEventModel, pk=booking_id, user=request.user)  # noqa
 
     if request.method == 'POST':
         booked_event.delete()
-        messages.success(request, f'Booking for {booked_event.event.title} deleted successfully.')
+        messages.success(request, f'Booking for {booked_event.event.title} deleted successfully.')  # noqa
 
     return redirect('events:user_booked_events')
 
@@ -237,7 +237,7 @@ def user_pending_events(request):
     they are also welcome to delete their pending approvals if they
     do not wish for them to be approved.
     """
-    pending_events = EventModel.objects.filter(creator=request.user, approved=False)
+    pending_events = EventModel.objects.filter(creator=request.user, approved=False)  # noqa
 
     context = {
         'pending_events': pending_events,
@@ -253,7 +253,7 @@ def delete_pending_event(request, event_id):
     filtering unapproved events and ensuring that the user who made
     the request is also the event creator.
     """
-    event = get_object_or_404(EventModel, pk=event_id, creator=request.user, approved=False)
+    event = get_object_or_404(EventModel, pk=event_id, creator=request.user, approved=False)  # noqa
 
     event.delete()
     messages.success(request, f"Event {event.title} successfully deleted")
@@ -272,7 +272,7 @@ def event_approval_list(request):
     """
     if not request.user.is_superuser:
         return render(request, 'unauthorized.html')
-    
+
     pending_events = EventModel.objects.filter(approved=False)
 
     context = {
@@ -287,8 +287,8 @@ def event_approval(request, event_id):
     """
     For superusers only.
     From the event approval list, a superuser can approve
-    or reject an event depending on the action of the button 
-    which is clicked. The `approve` action button will approve 
+    or reject an event depending on the action of the button
+    which is clicked. The `approve` action button will approve
     of an event. Similarly, the `reject` action button will
     reject the event and delete it from the database permanently.
     """
@@ -303,7 +303,7 @@ def event_approval(request, event_id):
         if action == 'approve':
             event.approved = True
             event.save()
-            messages.success(request, f'Event {event.title} has been approved.')
+            messages.success(request, f'Event {event.title} has been approved.')  # noqa
 
         elif action == 'reject':
             event.delete()
@@ -359,13 +359,12 @@ def review_approval(request, review_id):
         if action == 'approve':
             review.approved = True
             review.save()
-            messages.success(request, f'Review by {review.user} has been approved.')
+            messages.success(request, f'Review by {review.user} has been approved.')  # noqa
         elif action == 'reject':
             review.delete()
             messages.success(request, 'Review has been rejected and deleted.')
-    
-    return redirect('events:review_approval_list')
 
+    return redirect('events:review_approval_list')
 
 
 @login_required
@@ -399,8 +398,8 @@ def edit_review(request, review_id):
         if form.is_valid():
             review.approved = False
             form.save()
-            
-            messages.success(request, "Your review has been edited and is pending approval.")
+
+            messages.success(request, "Your review has been edited and is pending approval.")  # noqa
 
             return redirect('index')
     else:
