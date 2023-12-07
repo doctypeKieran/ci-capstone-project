@@ -60,6 +60,8 @@ I used [coolors.co](https://coolors.co/e84610-009fe3-4a4a4f-445261-d63649-e6ecf0
 
 ## User Stories
 
+### First Time Site Viewers
+
 - As a User (viewer/member) I can see upcoming events so that I can book an event within a short space of time.
 - As a User (viewer) I can sign up as a member so that I can access the full features of the site.
 - As a user (any role) I can see icons for the product's socials so that I can keep up to date with news through social media.
