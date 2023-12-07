@@ -198,11 +198,11 @@ I used [Balsamiq](https://balsamiq.com/wireframes) to design my site wireframes.
 
   - Once a user has created an event and it becomes approved, they can also edit that event. Only the user who created the event is able to edit that event.
 
-    - ![User Edit Event Options](documentation/feature-user-edit-event-1.png)
+    ![User Edit Event Options](documentation/feature-user-edit-event-1.png)
 
-    - ![User Edit Event Form](documentation/feature-user-edit-event-2.png)
+    ![User Edit Event Form](documentation/feature-user-edit-event-2.png)
 
-    - ![User Edit Event Form 2](documentation/feature-user-edit-event-3.png)
+    ![User Edit Event Form 2](documentation/feature-user-edit-event-3.png)
 
   - The event edit form is prepopulated with all the data which was inputted when creating the event. Once the user has made the changes and clicked "Save Changes", the event will be put back up for approval by an admin. This is to ensure that a user doesn't create an accurate event and then edits it with inaccurate, false, or offensive information which could become presented to other users.
 
