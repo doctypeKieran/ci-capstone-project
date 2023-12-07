@@ -144,7 +144,7 @@ I used [Balsamiq](https://balsamiq.com/wireframes) to design my site wireframes.
 
   - Registration and log in functionality was implemented with the use of the django-allauth package. The sign up and log in forms were styled with crispy forms and crispy bootstrap.
   - On visiting the site, a message will be displayed at the top of the page alerting users that they are not currently logged in.
-    ![User not logged in message](documentation/feature-use-not-logged-in.png)
+    ![User not logged in message](documentation/feature-user-not-logged-in.png)
   - After clicking the "Register" link from the navigation menu, users will be directed to a user registration form.
     ![User registration form](documentation/feature-user-registration.png)
   - Registration is vital for users who wish to book/create events, as well as seeing the full details of an event and leaving reviews.
