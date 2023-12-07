@@ -7,3 +7,16 @@ for (let button of deleteButtons) {
         confirmDeleteBtn.href = `events/delete-event/${deleteEventId}`;
     })
 }
+
+const navMenuIcon = document.getElementById('nav-menu-icon');
+
+if (navMenuIcon.innerHTML === `<i class="hamburger-icon fa-solid fa-bars" aria-hidden="true"></i>`) {
+    console.log(true);
+} else {
+    console.log(false);
+    console.log(navMenuIcon.innerHTML);
+}
+
+navMenuIcon.addEventListener('click', () => {
+    navMenuIcon.innerHTML = navMenuIcon.innerHTML === `<i class="hamburger-icon fa-solid fa-bars" aria-hidden="true"></i>` ? `<i class="hamburger-icon fa-solid fa-xmark"></i>` : `<i class="hamburger-icon fa-solid fa-bars" aria-hidden="true"></i>`;
+})
