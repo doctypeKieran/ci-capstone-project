@@ -152,7 +152,7 @@ I used [Balsamiq](https://balsamiq.com/wireframes) to design my site wireframes.
   - Users can log in with their credentials once they have registered.
     - ![User login form](documentation/feature-user-login.png)
   - Once logged in, users will be alerted with a success message:
-    - [!User login message](documentation/feature-user-login-message)
+    - ![User login message](documentation/feature-user-login-message.png)
 
 - **Logging Out**
   - When a user clicks "Logout" from the navigation menu, they will be navigated to a page confirming that they want to log out.
