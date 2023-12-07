@@ -557,3 +557,31 @@ Then back to Heroku:
   - Ensured that the "main" branch was where the app was being deployed from
   - Clicked "Deploy Branch"
   - Opened the app to ensure it was successfully deployed
+
+## Credits
+
+[Readme Editor](https://readme.so/editor) for creating my README.md and TESTING.md
+[Chat GPT](https://chat.openai.com/) for simple debugging
+[Stack Overflow](https://stackoverflow.com/) for debugging more complex issues
+[Django Docs](https://docs.djangoproject.com/en/5.0/) for detailed explanations on views, models, urls, etc.
+[W3Schools](https://www.w3schools.com/) for teaching me Django tricks, like creating a custom 404 page
+[DrawSQL](https://drawsql.app/) for creating my ERD
+[Am I Responsive](https://ui.dev/amiresponsive) for my banner screenshot
+
+## Acknowledgements
+
+- I would like to thank EVERYONE in my bootcamp for being such wonderful, delightful people to work, learn and laugh alongside. You are all such beautiful people, and I wish you all the best for the future. You all believed in me, and I believe in ALL of you.
+
+- I would like to thank my CodeInstitute mentor, Spencer Barriball, for helping me with the initiation and development of this project. Your words of wisdom and solutions for issues were of great help to me, and subsequently helped me to complete this project in a timely manner.
+
+- I would like to thank my partner, Sian, for staying by my side every step of the way in this challenging journey. You celebrated with me when I was at my best, and picked me back up when I was at my worst. Hey, look, you're famous now!
+
+- I would like to thank my children James, Noah, and Charlotte for thinking my new career path is "cool" and even helping me to code some websites. You'll all make spectacular developers when you're older - watch this space!
+
+- I would like to thank my mum, my dad, my brother, and all of my extended family who showed such keen interest and support in my career change. You are all helping me to accomplish my dream.
+
+- I would like to thank everyone at CodeInstitute for offering such tremendous help and support, as well as providing such helpful learning knowledge. Matt Rudge, if you ever read this, you are wonderful!
+
+- I would like to thank Richey Malhotra for pulling me over the halfway line in my journey, and David Calikes for helping me the rest of the way, helping to simplify a truly complex subject in Django. All the best for your future in facilitation.
+
+- I would like to thank the entire CodeInstitute Slack community. You're all such a friendly and helpful bunch, and I've even made some friends on there whom I keep in regular contact with.
