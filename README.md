@@ -117,12 +117,14 @@ I used [Balsamiq](https://balsamiq.com/wireframes) to design my site wireframes.
     - All Events
     - Register
     - Log in
+
   - Additional links visible to logged in USERS:
     - My Pending Events
     - My Pending Reviews
     - My Booked Events
     - Create Event
     - Logout
+
   - Links visible to admin:
     - "Admin Panel" which extends to reveal:
       - Approve Events
@@ -184,15 +186,15 @@ I used [Balsamiq](https://balsamiq.com/wireframes) to design my site wireframes.
 
   - Building on the previous feature, an admin can either approve or reject an event which was created by a user. They can access a page of pending events from the admin panel in the navigation menu.
 
-    - ![Admin Event Approval List](documentation/feature-admin-event-approval-list.png)
+    ![Admin Event Approval List](documentation/feature-admin-event-approval-list.png)
 
   - If approved, the admin is alerted that the event was approved. The event will now be displayed amongst the rest of the events. The position in which it appears on the home page/all events page depends on the date on which the event takes place.
 
-    - ![Admin Event Approved](documentation/feature-admin-event-approval-approve.png)
+    ![Admin Event Approved](documentation/feature-admin-event-approval-approve.png)
 
   - If rejected, the admin is alerted that the event was rejected and deleted. The event will no longer exist in the database. Providing there are no more events pending approval, the page will inform the admin that there are no pending events for approval.
   
-    - ![Admin Event Rejected](documentation/feature-admin-event-approval-reject.png)
+    ![Admin Event Rejected](documentation/feature-admin-event-approval-reject.png)
 
 - **Editing Events**
 
@@ -206,63 +208,63 @@ I used [Balsamiq](https://balsamiq.com/wireframes) to design my site wireframes.
 
   - The event edit form is prepopulated with all the data which was inputted when creating the event. Once the user has made the changes and clicked "Save Changes", the event will be put back up for approval by an admin. This is to ensure that a user doesn't create an accurate event and then edits it with inaccurate, false, or offensive information which could become presented to other users.
 
-    - ![User Edited Event Pending](documentation/feature-user-edit-event-pending.png)
+    ![User Edited Event Pending](documentation/feature-user-edit-event-pending.png)
 
-    - ![User Edit Event Pending List](documentation/feature-user-edit-event-pending-2.png)
-    - *In this example, an exclamation mark was added to the title. Now, it's pending approval again.*
+    ![User Edit Event Pending List](documentation/feature-user-edit-event-pending-2.png)
+    > *In this example, an exclamation mark was added to the title. Now, it's pending approval again.*
 
 - **Deleting Events (Current User/Admin)**
 
   - As previously demonstrated, users are able to delete their pending events. However, users can also **delete** events which they created and have been approved.
-    - ![User Delete Event Option](documentation/feature-user-delete-event-1.png)
+    ![User Delete Event Option](documentation/feature-user-delete-event-1.png)
 
-    - ![User Delete Event Confirm](documentation/feature-user-delete-event-2.png)
+    ![User Delete Event Confirm](documentation/feature-user-delete-event-2.png)
 
-    - ![User Delete Event Message](documentation/feature-user-delete-event-3.png)
+    ![User Delete Event Message](documentation/feature-user-delete-event-3.png)
   
   - Once the event has been confirmed to be deleted, the user will be alerted via a message that their event was successfully deleted. Now, the event will no longer appear on the home page or the "All Events" list.
 
 - **Booking Events**
   - All users will be able to book an event after clicking on "View Full Event Details" on an event from the home page or "All Events" list. From here, users will be navigated to a page which expands on details for the event, including a description of the event, reviews for the event, and the ability to book the event.
 
-    - ![User Book Event Option](documentation/feature-user-book-event.png)
+    ![User Book Event Option](documentation/feature-user-book-event.png)
 
   - Once the user clicks the button, they will be navigated to a page where they can select how many tickets they'd like to book. The minimum tickets they can purchase is 1, while the maximum is 10.
 
-    - ![User Book Event Ticket Select](documentation/feature-user-book-event-select.png)
+    ![User Book Event Ticket Select](documentation/feature-user-book-event-select.png)
     
-    - ![User Book Event Confirm](documentation/feature-user-book-event-confirm.png)
+    ![User Book Event Confirm](documentation/feature-user-book-event-confirm.png)
 
   - Once the user has booked an event, they will receive a message informing them that the event was booked with the number of tickets selected. In the view logic behind this, the word "ticket" will be displayed if 1 ticket is selected, and the word "tickets" will be displayed if more than 1 tickets are selected.
 
-    - ![User Book Event Message](documentation/feature-user-book-event-message.png)
+    ![User Book Event Message](documentation/feature-user-book-event-message.png)
 
 - **Viewing and deleting booked events**
   - Users will be able to see the events which they have booked by navigating to "My Booked Events" from the navigation menu.
 
-    - ![User Booked Events](documentation/feature-user-booked-events.png)
+    ![User Booked Events](documentation/feature-user-booked-events.png)
   
   - From here, they can view their booked events which will display the title and number of tickets for that event.
 
   - They can also delete the event. As it stands, there is no confirmation in place, so the action is sudden and final. This is something to be addressed in a future sprint. However, once deleted, the user will be informed via a message that their booking has been deleted. Once this action has been taken - and providing the user has no further bookings - they will also be informed that they currently have no booked events, and that they may view the latest events should they wish to book one.
 
-    - ![User Booked Event Deleted](documentation/feature-user-booked-events-delete.png)
+    ![User Booked Event Deleted](documentation/feature-user-booked-events-delete.png)
 
 - **Creating Reviews**
 
   - Logged in users also have the ability to create and leave a review on selected events. They can access the form for writing a review from the expanded details page for the selected event. Users can only leave reviews providing they did not also create the selected event.
 
-    - ![User Review Form](documentation/feature-user-review-form.png)
-      - *Logged in as "testuser1" who did not create the event*
+    ![User Review Form](documentation/feature-user-review-form.png)
+      > *Logged in as "testuser1" who did not create the event*
 
-    - ![User Review Form Hidden](documentation/feature-user-review-form-nope.png)
-      - *Logged in as "testuser2", the creator of the event. Now, a message alerting the user that they cannot leave a review on their own event is displayed in place of the review form.*
+    ![User Review Form Hidden](documentation/feature-user-review-form-nope.png)
+      > *Logged in as "testuser2", the creator of the event. Now, a message alerting the user that they cannot leave a review on their own event is displayed in place of the review form.*
 
   - Once the user has submitted the review, it will go up for approval by a site admin. They will be informed of this via a message, and it will also be displayed in "My Pending Reviews" which is accessible from the navigation menu.
 
-    - ![User Review Pending Message](documentation/feature-user-review-pending-message.png)
+    ![User Review Pending Message](documentation/feature-user-review-pending-message.png)
 
-    - ![User Review Pending List](documentation/feature-user-review-pending-list.png)
+    ![User Review Pending List](documentation/feature-user-review-pending-list.png)
 
 - **Approving/Rejecting Reviews (Admin)**
 
@@ -272,41 +274,41 @@ I used [Balsamiq](https://balsamiq.com/wireframes) to design my site wireframes.
 
   - In both instances, the site admin will be alerted of their actions via a message. Providing there are no more reviews up for approval, the text of the page will inform the admin that there are no pending reviews at the moment.
 
-    - ![Admin Review Pending List](documentation/feature-admin-review-approval-list.png)
+    ![Admin Review Pending List](documentation/feature-admin-review-approval-list.png)
 
-    - ![Admin Review Approval](documentation/feature-admin-review-approval-approve.png)
+    ![Admin Review Approval](documentation/feature-admin-review-approval-approve.png)
 
-    - ![Admin Review Rejection](documentation/feature-admin-review-approval-reject.png)
+    ![Admin Review Rejection](documentation/feature-admin-review-approval-reject.png)
 
 - **Viewing and Editing Reviews**
 
   - Once a review has been approved, it will be visible on the selected event by all logged-in users. If the user wrote the review, they will also have the option to edit it.
 
-    - ![User Reviews and Edit Option](documentation/feature-user-review-edit.png)
+    ![User Reviews and Edit Option](documentation/feature-user-review-edit.png)
 
   - Once a user clicks to edit their review, they will be taken to an edit form where they can add/amend content for their review. Just as with the event edit form, the review edit form will be prepopulated with the content from the review which they originally created.
 
-    - ![User Review Edit Form](documentation/feature-user-review-edit-form.png)
+    ![User Review Edit Form](documentation/feature-user-review-edit-form.png)
 
   - Once the review has been edited, it will go back up for review by an admin. Again, this is to ensure that users can't edit their previously approved reviews with anything irrelevant or offensive.
 
-    - ![User Review Edit Message](documentation/feature-user-review-edit-message.png)
+    ![User Review Edit Message](documentation/feature-user-review-edit-message.png)
 
 - **Grid Display**
 
   - A grid display was my priority. It ensured that everything would be displayed neatly and, with the help of media queries, responsively.
 
-    - ![Desktop Events Grid](documentation/feature-grid-desktop.png)
+    ![Desktop Events Grid](documentation/feature-grid-desktop.png)
 
-    - ![Tablet Events Grid](documentation/feature-grid-tablet.png)
+    ![Tablet Events Grid](documentation/feature-grid-tablet.png)
 
-    - ![Mobile Events Grid](documentation/feature-grid-mobile.png)
+    ![Mobile Events Grid](documentation/feature-grid-mobile.png)
 
 - **Footer**
 
   - A simple, responsive footer displaying social links and copyright text is presented in the footer.
 
-    - ![Footer](documentation/feature-footer.png)
+    ![Footer](documentation/feature-footer.png)
 
 ### Future Features
 
