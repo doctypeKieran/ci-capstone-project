@@ -79,7 +79,7 @@ I used [coolors.co](https://coolors.co/e84610-009fe3-4a4a4f-445261-d63649-e6ecf0
 ### Site Admin
 
 - As a Site admin I can approve or reject events from creators so that I can ensure that only proper events are listed to members.
-- As a Site admin I can approve reviews so that I can filter out objectionable reviews from users.
+- As a Site admin I can approve reviews so that I can filter out offensive reviews from users.
 
 ## Wireframes
 
