@@ -194,7 +194,7 @@ I used [Balsamiq](https://balsamiq.com/wireframes) to design my site wireframes.
 
     - ![User Delete Pending Event](documentation/feature-user-delete-pending-event-3.png)
 
-- **Approving Events (Admin)**
+- **Approving/Rejecting Events (Admin)**
   - Building on the previous feature, an admin can either approve or reject an event which was created by a user. They can access a page of pending events from the admin panel in the navigation menu.
 
     - ![Admin Event Approval List](documentation/feature-admin-event-approval-list.png)
@@ -206,3 +206,85 @@ I used [Balsamiq](https://balsamiq.com/wireframes) to design my site wireframes.
   - If rejected, the admin is alerted that the event was rejected and deleted. The event will no longer exist in the database. Providing there are no more events pending approval, the page will inform the admin that there are no pending events for approval.
   
     - ![Admin Event Rejected](documentation/feature-admin-event-approval-reject.png)
+
+- **Editing Events**
+  - Once a user has created an event and it becomes approved, they can also edit that event. Only the user who created the event is able to edit that event.
+
+    - ![User Edit Event Options](documentation/feature-user-edit-event-1.png)
+
+    - ![User Edit Event Form](documentation/feature-user-edit-event-2.png)
+
+    - ![User Edit Event Form 2](documentation/feature-user-edit-event-3.png)
+
+  - The event edit form is prepopulated with all the data which was inputted when creating the event. Once the user has made the changes and clicked "Save Changes", the event will be put back up for approval by an admin. This is to ensure that a user doesn't create an accurate event and then edits it with inaccurate, false, or offensive information which could become presented to other users.
+
+    - ![User Edited Event Pending](documentation/feature-user-edit-event-pending.png)
+
+    - ![User Edit Event Pending List](documentation/feature-user-edit-event-pending-2.png)
+    - *In this example, an exclamation mark was added to the title. Now, it's pending approval again.*
+
+- **Deleting Events**
+  - As previously demonstrated, users are able to delete their pending events. However, users can also **delete** events which they created and have been approved.
+    - ![User Delete Event Option](documentation/feature-user-delete-event-1.png)
+
+    - ![User Delete Event Confirm](documentation/feature-user-delete-event-2.png)
+
+    - ![User Delete Event Message](documentation/feature-user-delete-event-3.png)
+  
+  - Once the event has been confirmed to be deleted, the user will be alerted via a message that their event was successfully deleted. Now, the event will no longer appear on the home page or the "All Events" list.
+
+- **Booking Events**
+  - All users will be able to book an event after clicking on "View Full Event Details" on an event from the home page or "All Events" list. From here, users will be navigated to a page which expands on details for the event, including a description of the event, reviews for the event, and the ability to book the event.
+
+    - ![User Book Event Option](documentation/feature-user-book-event.png)
+
+  - Once the user clicks the button, they will be navigated to a page where they can select how many tickets they'd like to book. The minimum tickets they can purchase is 1, while the maximum is 10.
+
+    - ![User Book Event Ticket Select](documentation/feature-user-book-event-select.png)
+    
+    - ![User Book Event Confirm](documentation/feature-user-book-event-confirm.png)
+
+  - Once the user has booked an event, they will receive a message informing them that the event was booked with the number of tickets selected. In the view logic behind this, the word "ticket" will be displayed if 1 ticket is selected, and the word "tickets" will be displayed if more than 1 tickets are selected.
+
+    - ![User Book Event Message](documentation/feature-user-book-event-message.png)
+
+- **Viewing and deleting booked events**
+  - Users will be able to see the events which they have booked by navigating to "My Booked Events" from the navigation menu.
+
+    - ![User Booked Events](documentation/feature-user-booked-events.png)
+  
+  - From here, they can view their booked events which will display the title and number of tickets for that event.
+
+  - They can also delete the event. As it stands, there is no confirmation in place, so the action is sudden and final. This is something to be addressed in a future sprint. However, once deleted, the user will be informed via a message that their booking has been deleted. Once this action has been taken - and providing the user has no further bookings - they will also be informed that they currently have no booked events, and that they may view the latest events should they wish to book one.
+
+    - ![User Booked Event Deleted](documentation/feature-user-booked-events-delete.png)
+
+- **Creating Reviews**
+
+  - Logged in users also have the ability to create and leave a review on selected events. They can access the form for writing a review from the expanded details page for the selected event. Users can only leave reviews providing they did not also create the selected event.
+
+    - ![User Review Form](documentation/feature-user-review-form.png)
+      - *Logged in as "testuser1" who did not create the event*
+
+    - ![User Review Form Hidden](documentation/feature-user-review-form-nope.png)
+      - *Logged in as "testuser2", the creator of the event. Now, a message alerting the user that they cannot leave a review on their own event is displayed in place of the review form.*
+
+  - Once the user has submitted the review, it will go up for approval by a site admin. They will be informed of this via a message, and it will also be displayed in "My Pending Reviews" which is accessible from the navigation menu.
+
+    - ![User Review Pending Message](documentation/feature-user-review-pending-message.png)
+
+    - ![User Review Pending List](documentation/feature-user-review-pending-list.png)
+
+- **Approving/Rejecting Reviews**
+
+  - Site admins can either approve or reject of a review which was submitted for approval. 
+    - If a review is approved, then it will become displayed as a review on the event which the user submitted it on.
+    - If a review is rejected, then it will be deleted from the database and therefore will not be displayed on the event which the user submitted it on.
+
+  - In both instances, the site admin will be alerted of their actions via a message. Providing there are no more reviews up for approval, the text of the page will inform the admin that there are no pending reviews at the moment.
+
+    - ![Admin Review Pending List](documentation/feature-admin-review-approval-list.png)
+
+    - ![Admin Review Approval](documentation/feature-admin-review-approval-approve.png)
+
+    - ![Admin Review Rejection](documentation/feature-admin-review-approval-reject.png)
