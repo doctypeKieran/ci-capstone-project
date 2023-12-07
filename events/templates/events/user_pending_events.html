@@ -13,7 +13,7 @@
 <section class="pending-events-container">
     {% for event in pending_events %}
     <div class="pending-event mb-3">
-        <h1>{{ event.title }}</h1>
+        <h2>{{ event.title }}</h2>
         <h3>{{ event.teaser }}</h3>
         <div class="event-info-container">
             <p><strong>Price: </strong>£{{ event.ticket_price|floatformat:2 }}</p>
