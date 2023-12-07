@@ -562,13 +562,13 @@ Then back to Heroku:
 
 ## Credits
 
-[Readme Editor](https://readme.so/editor) for creating my README.md and TESTING.md
-[Chat GPT](https://chat.openai.com/) for simple debugging
-[Stack Overflow](https://stackoverflow.com/) for debugging more complex issues
-[Django Docs](https://docs.djangoproject.com/en/5.0/) for detailed explanations on views, models, urls, etc.
-[W3Schools](https://www.w3schools.com/) for teaching me Django tricks, like creating a custom 404 page
-[DrawSQL](https://drawsql.app/) for creating my ERD
-[Am I Responsive](https://ui.dev/amiresponsive) for my banner screenshot
+- [Readme Editor](https://readme.so/editor) for creating my README.md and TESTING.md
+- [Chat GPT](https://chat.openai.com/) for simple debugging
+- [Stack Overflow](https://stackoverflow.com/) for debugging more complex issues
+- [Django Docs](https://docs.djangoproject.com/en/5.0/) for detailed explanations on views, models, urls, etc.
+- [W3Schools](https://www.w3schools.com/) for teaching me Django tricks, like creating a custom 404 page
+- [DrawSQL](https://drawsql.app/) for creating my ERD
+- [Am I Responsive](https://ui.dev/amiresponsive) for my banner screenshot
 
 ## Acknowledgements
 
