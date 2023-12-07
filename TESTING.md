@@ -148,4 +148,8 @@ The biggest takeaway from the testing was the non-functionality of the "About" l
 
 With another couple of days, I would have gotten this feature implemented. However, I regarded the "about" section as being less important than implementing CRUD functionality, authentication, and authorization, as well as the clear presentation of data to users. I believe the latter acts as a sort of "about" in it's own regard, therefore I think of the "about" section as an 'expanded information' section which would arrive in the near future.
 
+It was wonderful to see my code being fully validated whilst it was being run through the linters and validators. I've become quite accustomed to writing semantic and conventional HTML, CSS and JavaScript code, and adhering to PEP8 standards when writing Python is something which is developing more and more naturally.
+
+The Lighthouse audit was far greater than I'd initially expected.
+
 Click [Here](README.md) to return back to the README.
