@@ -25,11 +25,9 @@
                 <img src="{% static 'images/logo-music-note.png' %}" alt="" class="navbar-logo">
                 <a class="navbar-brand" href="/">Musicality</a>
             </div>
-            <button class="hamburger-btn navbar-toggler" type="button" data-bs-toggle="collapse"
+            <button id="nav-menu-icon" class="hamburger-btn navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <i class="hamburger-icon fa-solid fa-bars"></i>
-            </button>
+                aria-label="Toggle navigation"><i class="hamburger-icon fa-solid fa-bars"></i></button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 mx-auto">
                     <li class="nav-item">
@@ -42,7 +40,8 @@
                         <a class="nav-link" aria-current="page" href="#">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {% if request.path == '/events/all-events/' %}active-link{% endif %}" href="{% url 'events:all_events' %}">
+                        <a class="nav-link {% if request.path == '/events/all-events/' %}active-link{% endif %}"
+                            href="{% url 'events:all_events' %}">
                             All Events
                         </a>
                     </li>
@@ -56,15 +55,17 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li class="nav-item">
-                                <a class="nav-link {% if request.path == '/events/approval/list/' %}active-link{% endif %}" href="{% url 'events:event_approval_list' %}" >
+                                <a class="nav-link {% if request.path == '/events/approval/list/' %}active-link{% endif %}"
+                                    href="{% url 'events:event_approval_list' %}">
                                     Approve Events
                                 </a>
                             </li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li class="nav-item {% if request.path == '/events/approval/reviews/' %}active-link{% endif %}">
-                                <a  class="nav-link" href="{% url 'events:review_approval_list' %}">
+                            <li
+                                class="nav-item {% if request.path == '/events/approval/reviews/' %}active-link{% endif %}">
+                                <a class="nav-link" href="{% url 'events:review_approval_list' %}">
                                     Approve Reviews
                                 </a>
                             </li>
@@ -72,39 +73,46 @@
                     </li>
                     {% else %}
                     <li class="nav-item">
-                        <a class="nav-link {% if request.path == '/events/user-pending-events/' %}active-link{% endif %}" href="{% url 'events:user_pending_events' %}" >
+                        <a class="nav-link {% if request.path == '/events/user-pending-events/' %}active-link{% endif %}"
+                            href="{% url 'events:user_pending_events' %}">
                             My Pending Events
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {% if request.path == '/events/user-pending-reviews/' %}active-link{% endif %}" href="{% url 'events:user_pending_reviews' %}" >
+                        <a class="nav-link {% if request.path == '/events/user-pending-reviews/' %}active-link{% endif %}"
+                            href="{% url 'events:user_pending_reviews' %}">
                             My Pending Reviews
                         </a>
                     </li>
                     {% endif %}
                     <li class="nav-item">
-                        <a class="nav-link {% if request.path == '/events/booked-events/' %}active-link{% endif %}" href="{% url 'events:user_booked_events' %}" >
+                        <a class="nav-link {% if request.path == '/events/booked-events/' %}active-link{% endif %}"
+                            href="{% url 'events:user_booked_events' %}">
                             My Booked Events
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {% if request.path == '/events/create-event/' %}active-link{% endif %}" href="{% url 'events:create_event' %}" >
+                        <a class="nav-link {% if request.path == '/events/create-event/' %}active-link{% endif %}"
+                            href="{% url 'events:create_event' %}">
                             Create Event
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {% if request.path == '/accounts/logout/' %}active-link{% endif %}" href="{% url 'account_logout' %}" >
+                        <a class="nav-link {% if request.path == '/accounts/logout/' %}active-link{% endif %}"
+                            href="{% url 'account_logout' %}">
                             Logout
                         </a>
                     </li>
                     {% else %}
                     <li class="nav-item">
-                        <a class="nav-link {% if request.path == '/accounts/signup/' %}active-link{% endif %}" href="{% url 'account_signup' %}">
+                        <a class="nav-link {% if request.path == '/accounts/signup/' %}active-link{% endif %}"
+                            href="{% url 'account_signup' %}">
                             Register
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {% if request.path == '/accounts/login/' %}active-link{% endif %}" href="{% url 'account_login' %}">
+                        <a class="nav-link {% if request.path == '/accounts/login/' %}active-link{% endif %}"
+                            href="{% url 'account_login' %}">
                             Log in
                         </a>
                     </li>
