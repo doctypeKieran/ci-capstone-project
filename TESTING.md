@@ -139,4 +139,13 @@ I used the [Lighthouse](https://chrome.google.com/webstore/detail/lighthouse/bli
 
 ![Lighthouse Audit Results](documentation/lighthouse-report-1.png)
 
+### Conclusion
+
+The biggest takeaway from the testing was the non-functionality of the "About" link in the navigation menu. This was addressed in the "Future Features" section in the README. I have marked it as "Fail" to remind me of two things:
+
+- That not all features can make it in one sprint
+- That the feature is able to be implemented in a future sprint
+
+With another couple of days, I would have gotten this feature implemented. However, I regarded the "about" section as being less important than implementing CRUD functionality, authentication, and authorization, as well as the clear presentation of data to users. I believe the latter acts as a sort of "about" in it's own regard, therefore I think of the "about" section as an 'expanded information' section which would arrive in the near future.
+
 Click [Here](README.md) to return back to the README.
