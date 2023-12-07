@@ -143,42 +143,66 @@ I used [Balsamiq](https://balsamiq.com/wireframes) to design my site wireframes.
 - **Registration**
   - Registration and log in functionality was implemented with the use of the django-allauth package. The sign up and log in forms were styled with crispy forms and crispy bootstrap.
   - On visiting the site, a message will be displayed at the top of the page alerting users that they are not currently logged in.
-    ![User not logged in message](documentation/feature-use-not-logged-in.png)
+
+    - ![User not logged in message](documentation/feature-user-not-logged-in.png)
+
   - After clicking the "Register" link from the navigation menu, users will be directed to a user registration form.
-    ![User registration form](documentation/feature-user-registration.png)
+
+    - ![User registration form](documentation/feature-user-registration.png)
+
   - Registration is vital for users who wish to book/create events, as well as seeing the full details of an event and leaving reviews.
 
 - **Logging In**
   - Users can log in with their credentials once they have registered.
+
     - ![User login form](documentation/feature-user-login.png)
+
   - Once logged in, users will be alerted with a success message:
+
     - ![User login message](documentation/feature-user-login-message.png)
 
 - **Logging Out**
   - When a user clicks "Logout" from the navigation menu, they will be navigated to a page confirming that they want to log out.
+
     - ![User logout confirmation](documentation/feature-user-logout.png)
+
   - Once logged out, they will be alerted that they have been signed out.
+
     - ![User logout message](documentation/feature-user-logout-message.png)
 
 - **Creating Events**
   - A logged in user can create an event by clicking the "Create Event" link in the navigation menu. They will be taken to a form.
+
     - ![Event Creation Form 1](documentation/feature-create-event-1.png)
+
     - ![Event Creation Form 2](documentation/feature-create-event-2.png)
+
   - Once the user clicks the "Create Event" button, the event will go up for approval by an admin, and the user will be alerted:
+
     - ![Created Event Pending](documentation/feature-create-event-pending.png)
 
 - **Pending Events**
   - Once a user has created an event, they will be able to see it (as well as any other events which require approval) in "My Pending Events"; a page accessible from the navigation menu.
+
     - ![User Pending Events](documentation/feature-user-pending-events.png)
+
   - Users can delete events from this list if they feel they are no longer necessary, therefore no longer requiring approval by an admin.
+
     - ![User Delete Pending Event](documentation/feature-user-delete-pending-event-1.png)
+
     - ![User Delete Pending Event](documentation/feature-user-delete-pending-event-2.png)
+
     - ![User Delete Pending Event](documentation/feature-user-delete-pending-event-3.png)
 
 - **Approving Events (Admin)**
   - Building on the previous feature, an admin can either approve or reject an event which was created by a user. They can access a page of pending events from the admin panel in the navigation menu.
+
     - ![Admin Event Approval List](documentation/feature-admin-event-approval-list.png)
+
   - If approved, the admin is alerted that the event was approved. The event will now be displayed amongst the rest of the events. The position in which it appears on the home page/all events page depends on the date on which the event takes place.
+
     - ![Admin Event Approved](documentation/feature-admin-event-approval-approve.png)
+
   - If rejected, the admin is alerted that the event was rejected and deleted. The event will no longer exist in the database. Providing there are no more events pending approval, the page will inform the admin that there are no pending events for approval.
+  
     - ![Admin Event Rejected](documentation/feature-admin-event-approval-reject.png)
