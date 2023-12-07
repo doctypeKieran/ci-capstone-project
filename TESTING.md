@@ -138,3 +138,5 @@ I used the [Lighthouse](https://chrome.google.com/webstore/detail/lighthouse/bli
 | SEO | 80 |
 
 ![Lighthouse Audit Results](documentation/lighthouse-report-1.png)
+
+Click [Here](README.md) to return back to the README.
