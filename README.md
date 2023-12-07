@@ -233,6 +233,7 @@ I used [Balsamiq](https://balsamiq.com/wireframes) to design my site wireframes.
     - ![User Delete Event Message](documentation/feature-user-delete-event-3.png)
   
   - Once the event has been confirmed to be deleted, the user will be alerted via a message that their event was successfully deleted. Now, the event will no longer appear on the home page or the "All Events" list.
+  - **ADMINS** can delete any event which they desire. They do not have to have created the event in order to delete it.
 
 - **Booking Events**
   - All users will be able to book an event after clicking on "View Full Event Details" on an event from the home page or "All Events" list. From here, users will be navigated to a page which expands on details for the event, including a description of the event, reviews for the event, and the ability to book the event.
